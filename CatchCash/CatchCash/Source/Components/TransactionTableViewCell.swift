@@ -1,5 +1,5 @@
 //
-//  AccountHistoryTableViewCell.swift
+//  TransactionHistoryTableViewCell.swift
 //  CatchCash
 //
 //  Created by DaEun Kim on 2020/07/07.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountHistoryTableViewCell: UITableViewCell {
+class TransactionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

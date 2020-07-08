@@ -11,7 +11,7 @@ import UIKit
 struct Gradient: MakeColor {
 
     // Category
-    static func make(_ category: Category) -> CAGradientLayer {
+    static func make(_ category: UsageCategory) -> CAGradientLayer {
         let layer = CAGradientLayer()
         layer.locations = [0.0, 0.5, 1.0]
         switch category {

@@ -3,27 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC8221F0475D722E53E601D /* Pods_CatchCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B34802C0276FCA72D58C9D /* Pods_CatchCash.framework */; };
+		BF38BFA024B58686001C8C4B /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BF9F24B58686001C8C4B /* TokenManager.swift */; };
+		BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFA224B58D91001C8C4B /* Transaction.swift */; };
 		BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */; };
 		BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF024B411CE00CFDA7C /* Main.storyboard */; };
 		BF589EF424B411D300CFDA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF324B411D300CFDA7C /* Assets.xcassets */; };
 		BF589EF724B411D300CFDA7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF524B411D300CFDA7C /* LaunchScreen.storyboard */; };
 		BF589F0524B4411300CFDA7C /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */; };
 		BF589F0624B4411300CFDA7C /* AccountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F0424B4411300CFDA7C /* AccountCollectionViewCell.xib */; };
-		BF589F0A24B445CE00CFDA7C /* AccountHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */; };
-		BF589F0B24B445CE00CFDA7C /* AccountHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */; };
+		BF589F0A24B445CE00CFDA7C /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */; };
+		BF589F0B24B445CE00CFDA7C /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F0924B445CE00CFDA7C /* TransactionTableViewCell.xib */; };
 		BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1124B4510000CFDA7C /* GoalView.swift */; };
 		BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1324B466CB00CFDA7C /* PieChartView.swift */; };
-		BF589F1724B4689D00CFDA7C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1624B4689D00CFDA7C /* Category.swift */; };
+		BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1624B4689D00CFDA7C /* UsageCategory.swift */; };
 		BF589F1924B46A7900CFDA7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1824B46A7900CFDA7C /* Color.swift */; };
 		BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1A24B48DE300CFDA7C /* Gradient.swift */; };
 		BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F2224B54D6100CFDA7C /* LabelPicker.xib */; };
+		BF589F2624B5573000CFDA7C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F2524B5573000CFDA7C /* API.swift */; };
+		BF589F2824B56B3800CFDA7C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F2724B56B3800CFDA7C /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		428803BFA6AED38B05787F00 /* Pods-CatchCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchCash.debug.xcconfig"; path = "Target Support Files/Pods-CatchCash/Pods-CatchCash.debug.xcconfig"; sourceTree = "<group>"; };
+		63B34802C0276FCA72D58C9D /* Pods_CatchCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatchCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7264C1CE385D4BDEC90ABC17 /* Pods-CatchCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchCash.release.xcconfig"; path = "Target Support Files/Pods-CatchCash/Pods-CatchCash.release.xcconfig"; sourceTree = "<group>"; };
+		BF38BF9F24B58686001C8C4B /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		BF38BFA224B58D91001C8C4B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		BF589EE724B411CE00CFDA7C /* CatchCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF589EF124B411CE00CFDA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,14 +42,16 @@
 		BF589EF824B411D300CFDA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF589F0424B4411300CFDA7C /* AccountCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCollectionViewCell.xib; sourceTree = "<group>"; };
-		BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHistoryTableViewCell.swift; sourceTree = "<group>"; };
-		BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		BF589F0924B445CE00CFDA7C /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		BF589F1124B4510000CFDA7C /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		BF589F1324B466CB00CFDA7C /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
-		BF589F1624B4689D00CFDA7C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BF589F1624B4689D00CFDA7C /* UsageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCategory.swift; sourceTree = "<group>"; };
 		BF589F1824B46A7900CFDA7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BF589F1A24B48DE300CFDA7C /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		BF589F2224B54D6100CFDA7C /* LabelPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelPicker.xib; sourceTree = "<group>"; };
+		BF589F2524B5573000CFDA7C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BF589F2724B56B3800CFDA7C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC8221F0475D722E53E601D /* Pods_CatchCash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF38BF9E24B5866B001C8C4B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BF38BF9F24B58686001C8C4B /* TokenManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BF38BFA124B58C4B001C8C4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF38BFA224B58D91001C8C4B /* Transaction.swift */,
+				BF589F1624B4689D00CFDA7C /* UsageCategory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BF589EDE24B411CE00CFDA7C = {
 			isa = PBXGroup;
 			children = (
 				BF589EE924B411CE00CFDA7C /* CatchCash */,
 				BF589EE824B411CE00CFDA7C /* Products */,
+				FDA4D07696B20052C4216077 /* Pods */,
+				D499FF396EDABA1ED91C1657 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +114,9 @@
 		BF589EFE24B4146100CFDA7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BF38BFA124B58C4B001C8C4B /* Models */,
+				BF38BF9E24B5866B001C8C4B /* Managers */,
+				BF589F2424B5545500CFDA7C /* Networking */,
 				BF589F1E24B545D300CFDA7C /* App */,
 				BF589F1524B4688D00CFDA7C /* Custom */,
 				BF589F1024B4506100CFDA7C /* Components */,
@@ -112,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				BF589F0424B4411300CFDA7C /* AccountCollectionViewCell.xib */,
-				BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */,
+				BF589F0924B445CE00CFDA7C /* TransactionTableViewCell.xib */,
 				BF589F2224B54D6100CFDA7C /* LabelPicker.xib */,
 			);
 			path = Components;
@@ -122,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */,
-				BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */,
+				BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */,
 				BF589F1124B4510000CFDA7C /* GoalView.swift */,
 				BF589F1324B466CB00CFDA7C /* PieChartView.swift */,
 			);
@@ -132,7 +167,6 @@
 		BF589F1524B4688D00CFDA7C /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				BF589F1624B4689D00CFDA7C /* Category.swift */,
 				BF589F1824B46A7900CFDA7C /* Color.swift */,
 				BF589F1A24B48DE300CFDA7C /* Gradient.swift */,
 			);
@@ -147,6 +181,32 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		BF589F2424B5545500CFDA7C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BF589F2524B5573000CFDA7C /* API.swift */,
+				BF589F2724B56B3800CFDA7C /* Service.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D499FF396EDABA1ED91C1657 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63B34802C0276FCA72D58C9D /* Pods_CatchCash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDA4D07696B20052C4216077 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				428803BFA6AED38B05787F00 /* Pods-CatchCash.debug.xcconfig */,
+				7264C1CE385D4BDEC90ABC17 /* Pods-CatchCash.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF589EFB24B411D300CFDA7C /* Build configuration list for PBXNativeTarget "CatchCash" */;
 			buildPhases = (
+				14EA2BB22050119F63E7C98E /* [CP] Check Pods Manifest.lock */,
 				BF589EE324B411CE00CFDA7C /* Sources */,
 				BF589EE424B411CE00CFDA7C /* Frameworks */,
 				BF589EE524B411CE00CFDA7C /* Resources */,
+				1B3855453A1BAFA554DEA579 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,11 +272,53 @@
 				BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */,
 				BF589F0624B4411300CFDA7C /* AccountCollectionViewCell.xib in Resources */,
 				BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */,
-				BF589F0B24B445CE00CFDA7C /* AccountHistoryTableViewCell.xib in Resources */,
+				BF589F0B24B445CE00CFDA7C /* TransactionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14EA2BB22050119F63E7C98E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CatchCash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B3855453A1BAFA554DEA579 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatchCash/Pods-CatchCash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatchCash/Pods-CatchCash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CatchCash/Pods-CatchCash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF589EE324B411CE00CFDA7C /* Sources */ = {
@@ -223,11 +327,15 @@
 			files = (
 				BF589F0524B4411300CFDA7C /* AccountCollectionViewCell.swift in Sources */,
 				BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */,
+				BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */,
 				BF589F1924B46A7900CFDA7C /* Color.swift in Sources */,
-				BF589F0A24B445CE00CFDA7C /* AccountHistoryTableViewCell.swift in Sources */,
+				BF38BFA024B58686001C8C4B /* TokenManager.swift in Sources */,
+				BF589F0A24B445CE00CFDA7C /* TransactionTableViewCell.swift in Sources */,
 				BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */,
 				BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */,
-				BF589F1724B4689D00CFDA7C /* Category.swift in Sources */,
+				BF589F2824B56B3800CFDA7C /* Service.swift in Sources */,
+				BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */,
+				BF589F2624B5573000CFDA7C /* API.swift in Sources */,
 				BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +478,7 @@
 		};
 		BF589EFC24B411D300CFDA7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 428803BFA6AED38B05787F00 /* Pods-CatchCash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -388,6 +497,7 @@
 		};
 		BF589EFD24B411D300CFDA7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7264C1CE385D4BDEC90ABC17 /* Pods-CatchCash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

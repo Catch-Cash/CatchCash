@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  UsageCategory.swift
 //  CatchCash
 //
 //  Created by DaEun Kim on 2020/07/07.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum Category: String {
+enum UsageCategory: String {
     case income
     case expense
     case saving
 }
 
-extension Category {
+extension UsageCategory {
     var title: String {
         switch self {
         case .income: return "수입"

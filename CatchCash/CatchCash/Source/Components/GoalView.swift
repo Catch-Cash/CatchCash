@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class GoalView: UIView {
 
     // MARK: UI Properties when isOpen
