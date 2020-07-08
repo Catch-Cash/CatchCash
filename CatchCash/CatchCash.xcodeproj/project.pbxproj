@@ -16,6 +16,11 @@
 		BF589F0A24B445CE00CFDA7C /* AccountHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */; };
 		BF589F0B24B445CE00CFDA7C /* AccountHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */; };
 		BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1124B4510000CFDA7C /* GoalView.swift */; };
+		BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1324B466CB00CFDA7C /* PieChartView.swift */; };
+		BF589F1724B4689D00CFDA7C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1624B4689D00CFDA7C /* Category.swift */; };
+		BF589F1924B46A7900CFDA7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1824B46A7900CFDA7C /* Color.swift */; };
+		BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1A24B48DE300CFDA7C /* Gradient.swift */; };
+		BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F2224B54D6100CFDA7C /* LabelPicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		BF589F1124B4510000CFDA7C /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		BF589F1324B466CB00CFDA7C /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		BF589F1624B4689D00CFDA7C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BF589F1824B46A7900CFDA7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BF589F1A24B48DE300CFDA7C /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		BF589F2224B54D6100CFDA7C /* LabelPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelPicker.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +82,8 @@
 		BF589EFE24B4146100CFDA7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */,
+				BF589F1E24B545D300CFDA7C /* App */,
+				BF589F1524B4688D00CFDA7C /* Custom */,
 				BF589F1024B4506100CFDA7C /* Components */,
 			);
 			path = Source;
@@ -102,6 +113,7 @@
 			children = (
 				BF589F0424B4411300CFDA7C /* AccountCollectionViewCell.xib */,
 				BF589F0924B445CE00CFDA7C /* AccountHistoryTableViewCell.xib */,
+				BF589F2224B54D6100CFDA7C /* LabelPicker.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -109,11 +121,30 @@
 		BF589F1024B4506100CFDA7C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				BF589F1124B4510000CFDA7C /* GoalView.swift */,
 				BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */,
 				BF589F0824B445CE00CFDA7C /* AccountHistoryTableViewCell.swift */,
+				BF589F1124B4510000CFDA7C /* GoalView.swift */,
+				BF589F1324B466CB00CFDA7C /* PieChartView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		BF589F1524B4688D00CFDA7C /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				BF589F1624B4689D00CFDA7C /* Category.swift */,
+				BF589F1824B46A7900CFDA7C /* Color.swift */,
+				BF589F1A24B48DE300CFDA7C /* Gradient.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		BF589F1E24B545D300CFDA7C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +207,7 @@
 			files = (
 				BF589EF724B411D300CFDA7C /* LaunchScreen.storyboard in Resources */,
 				BF589EF424B411D300CFDA7C /* Assets.xcassets in Resources */,
+				BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */,
 				BF589F0624B4411300CFDA7C /* AccountCollectionViewCell.xib in Resources */,
 				BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */,
 				BF589F0B24B445CE00CFDA7C /* AccountHistoryTableViewCell.xib in Resources */,
@@ -190,9 +222,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF589F0524B4411300CFDA7C /* AccountCollectionViewCell.swift in Sources */,
+				BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */,
+				BF589F1924B46A7900CFDA7C /* Color.swift in Sources */,
 				BF589F0A24B445CE00CFDA7C /* AccountHistoryTableViewCell.swift in Sources */,
 				BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */,
 				BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */,
+				BF589F1724B4689D00CFDA7C /* Category.swift in Sources */,
+				BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
