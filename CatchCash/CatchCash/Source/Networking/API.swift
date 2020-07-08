@@ -16,9 +16,9 @@ enum API {
     case deleteUser
     case renewalToken
     case account
-    case updateAccount(fintechNum: String, alias:String)
-    case transaction(fintechNum: String?)
-    case updateTranscation(Transaction)
+    case updateAccount(id: String, alias:String)
+    case transaction(id: String?)
+    case updateTransaction(Transaction)
     case goal
     case updateGoal(UsageCategory, goal: Int)
 }
@@ -45,13 +45,13 @@ extension API {
         case .account, .updateAccount:
             return "/account"
 
-        case .transaction(let fintechNum):
-            if let fintechNum = fintechNum {
-                return "account/list/" + fintechNum
+        case .transaction(let id):
+            if let id = id {
+                return "account/list/" + id
             }
             return "account/list/"
 
-        case .updateTranscation:
+        case .updateTransaction:
             return "/account/list"
 
         case .goal, .updateGoal:
@@ -67,7 +67,7 @@ extension API {
         case .renewalToken:
             return .post
 
-        case .updateAccount, .updateTranscation, .updateGoal:
+        case .updateAccount, .updateTransaction, .updateGoal:
             return .patch
 
         case .deleteUser:
@@ -82,7 +82,7 @@ extension API {
              .account,
              .updateAccount,
              .transaction,
-             .updateTranscation,
+             .updateTransaction,
              .goal,
              .updateGoal:
             return ["Authorization": TokenManager.accessToken]
@@ -98,10 +98,10 @@ extension API {
             return ["access_token": TokenManager.accessToken,
                     "refresh_token": TokenManager.refreshToken]
 
-        case .updateAccount(let fintechNum, let alias):
-            return ["fintech_use_num": fintechNum, "account_alias": alias]
+        case .updateAccount(let id, let alias):
+            return ["fintech_use_num": id, "account_alias": alias]
 
-        case .updateTranscation(let transaction):
+        case .updateTransaction(let transaction):
             return transaction.dictionary
 
         case .updateGoal(let category, let goal):

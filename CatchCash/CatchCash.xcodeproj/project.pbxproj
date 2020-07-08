@@ -10,6 +10,9 @@
 		3FC8221F0475D722E53E601D /* Pods_CatchCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B34802C0276FCA72D58C9D /* Pods_CatchCash.framework */; };
 		BF38BFA024B58686001C8C4B /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BF9F24B58686001C8C4B /* TokenManager.swift */; };
 		BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFA224B58D91001C8C4B /* Transaction.swift */; };
+		BF38BFA524B5995B001C8C4B /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFA424B5995B001C8C4B /* Responses.swift */; };
+		BF38BFA724B59A23001C8C4B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFA624B59A23001C8C4B /* Account.swift */; };
+		BF38BFA924B5A2C1001C8C4B /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFA824B5A2C1001C8C4B /* Goal.swift */; };
 		BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */; };
 		BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF024B411CE00CFDA7C /* Main.storyboard */; };
 		BF589EF424B411D300CFDA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF324B411D300CFDA7C /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		7264C1CE385D4BDEC90ABC17 /* Pods-CatchCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchCash.release.xcconfig"; path = "Target Support Files/Pods-CatchCash/Pods-CatchCash.release.xcconfig"; sourceTree = "<group>"; };
 		BF38BF9F24B58686001C8C4B /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		BF38BFA224B58D91001C8C4B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		BF38BFA424B5995B001C8C4B /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		BF38BFA624B59A23001C8C4B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		BF38BFA824B5A2C1001C8C4B /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		BF589EE724B411CE00CFDA7C /* CatchCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF589EF124B411CE00CFDA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			children = (
 				BF38BFA224B58D91001C8C4B /* Transaction.swift */,
 				BF589F1624B4689D00CFDA7C /* UsageCategory.swift */,
+				BF38BFA624B59A23001C8C4B /* Account.swift */,
+				BF38BFA824B5A2C1001C8C4B /* Goal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 			children = (
 				BF589F2524B5573000CFDA7C /* API.swift */,
 				BF589F2724B56B3800CFDA7C /* Service.swift */,
+				BF38BFA424B5995B001C8C4B /* Responses.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -333,10 +342,13 @@
 				BF589F0A24B445CE00CFDA7C /* TransactionTableViewCell.swift in Sources */,
 				BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */,
 				BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */,
+				BF38BFA524B5995B001C8C4B /* Responses.swift in Sources */,
 				BF589F2824B56B3800CFDA7C /* Service.swift in Sources */,
 				BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */,
 				BF589F2624B5573000CFDA7C /* API.swift in Sources */,
 				BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */,
+				BF38BFA924B5A2C1001C8C4B /* Goal.swift in Sources */,
+				BF38BFA724B59A23001C8C4B /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
