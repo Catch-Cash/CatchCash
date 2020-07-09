@@ -27,4 +27,9 @@ struct TokenManager {
             ud.set(newValue, forKey: "refreshToken")
         }
     }
+
+    static func clear() {
+        ud.set(nil, forKey: "accessToken")
+        ud.set(nil, forKey: "refreshToken")
+    }
 }

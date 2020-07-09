@@ -16,7 +16,7 @@ struct AccountResponse: Decodable {
     }
 }
 
-struct TransactionResponse: Decodable {
+struct TransactionResponse: Decodable & Equatable {
     let transactions: [Transaction]
     let isNextPageExists: String
 
@@ -26,8 +26,18 @@ struct TransactionResponse: Decodable {
     }
 }
 
-struct GoalResponse: Decodable {
+struct GoalResponse: Decodable & Equatable {
     let income: Goal
     let expense: Goal
     let saving: Goal
+}
+
+struct TokenResponse: Decodable & Equatable {
+    let accessToken: String
+    let refreshToken: String
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+    }
 }

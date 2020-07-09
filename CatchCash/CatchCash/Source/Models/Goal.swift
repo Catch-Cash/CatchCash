@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Goal: Decodable {
+struct Goal: Decodable & Equatable {
     let goal: Int
     let current: Int
     let achievementRate: Int

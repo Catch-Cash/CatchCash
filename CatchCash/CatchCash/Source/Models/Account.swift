@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Account: Decodable {
+struct SimpleAccount: Equatable {
+    let id: String
+    let alias: String
+}
+
+struct Account: Decodable & Equatable {
     let id: String
     let bank: String
     let alias: String
@@ -22,9 +27,13 @@ struct Account: Decodable {
         case banlance = "banlance_amt"
         case transactions = "transaction_list"
     }
+
+    func toSimpleAccount() -> SimpleAccount {
+        return SimpleAccount(id: self.id, alias: self.alias)
+    }
 }
 
-struct SimpleTransaction: Decodable {
+struct SimpleTransaction: Decodable & Equatable {
     let price: Int
     let label: Int
 

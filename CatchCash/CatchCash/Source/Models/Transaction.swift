@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Transaction: Codable {
+struct Transaction: Codable & Equatable {
     let id: Int
     let label: Int
     let title: String
