@@ -27,14 +27,14 @@ struct Gradient: MakeColor {
         let layer = CAGradientLayer()
         layer.locations = [0.0, 1.0]
         switch account {
-        case 1: layer.colors = [make("FE946E"), make("FEA98B")]
-        case 2: layer.colors = [make("46CDCF"), make("6BD7D8")]
-        case 3: layer.colors = [make("FEA3A7"), make("FEB5B8")]
-        case 4: layer.colors = [make("8388FF"), make("9B9FFF")]
-        case 5: layer.colors = [make("91DE94"), make("A7E4A9")]
-        case 6: layer.colors = [make("E594E2"), make("EAA9E7")]
-        case 7: layer.colors = [make("7BD4F5"), make("95DCF7")]
-        case 8: layer.colors = [make("EB7474"), make("EF8F8F")]
+        case 0: layer.colors = [make("FE946E"), make("FEA98B")]
+        case 1: layer.colors = [make("46CDCF"), make("6BD7D8")]
+        case 2: layer.colors = [make("FEA3A7"), make("FEB5B8")]
+        case 3: layer.colors = [make("8388FF"), make("9B9FFF")]
+        case 4: layer.colors = [make("91DE94"), make("A7E4A9")]
+        case 5: layer.colors = [make("E594E2"), make("EAA9E7")]
+        case 6: layer.colors = [make("7BD4F5"), make("95DCF7")]
+        case 7: layer.colors = [make("EB7474"), make("EF8F8F")]
         default: break
         }
         return layer

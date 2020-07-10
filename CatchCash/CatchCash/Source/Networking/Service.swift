@@ -26,11 +26,11 @@ protocol APIProvider {
     func deleteUser() -> Observable<NetworkingResult<Bool>>
     func renewalToken() -> Observable<NetworkingResult<Bool>>
 
-    func fetchAccount() -> Observable<NetworkingResult<[Account]>>
+    func fetchAccounts() -> Observable<NetworkingResult<[Account]>>
     func updateAccount(_ id: String, alias: String) -> Observable<NetworkingResult<Bool>>
-    func fetchTransaction(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>>
+    func fetchTransactions(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>>
     func updateTransaction(_ transaction: Transaction) -> Observable<NetworkingResult<Bool>>
-    func fetchGoal() -> Observable<NetworkingResult<GoalResponse>>
+    func fetchGoals() -> Observable<NetworkingResult<GoalResponse>>
     func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Bool>>
 }
 
@@ -119,7 +119,7 @@ final class Service: APIProvider {
         }
     }
 
-    func fetchAccount() -> Observable<NetworkingResult<[Account]>> {
+    func fetchAccounts() -> Observable<NetworkingResult<[Account]>> {
         return requestData(.account)
             .map { [weak self] response, data -> NetworkingResult<[Account]> in
                 switch response.statusCode {
@@ -169,7 +169,7 @@ final class Service: APIProvider {
         .retry()
     }
 
-    func fetchTransaction(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>> {
+    func fetchTransactions(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>> {
         return requestData(.transaction(id: id))
             .map { [weak self] response, data -> NetworkingResult<TransactionResponse> in
                 switch response.statusCode {
@@ -217,7 +217,7 @@ final class Service: APIProvider {
         .retry()
     }
 
-    func fetchGoal() -> Observable<NetworkingResult<GoalResponse>> {
+    func fetchGoals() -> Observable<NetworkingResult<GoalResponse>> {
         return requestData(.goal)
             .map { [weak self] response, data -> NetworkingResult<GoalResponse> in
                 switch response.statusCode {
