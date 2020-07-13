@@ -13,6 +13,11 @@ import RxSwift
 
 final class AccountCollectionViewCell: UICollectionViewCell {
 
+    struct Constant {
+        static let openHeight: CGFloat = 235
+        static let closeHeight: CGFloat = 110
+    }
+
     @IBOutlet weak var bankLabel: UILabel!
     @IBOutlet weak var aliasLabel: UILabel!
     @IBOutlet weak var editingButton: UIButton!
@@ -26,17 +31,21 @@ final class AccountCollectionViewCell: UICollectionViewCell {
             recentlyTransactionLabel.isHidden = !isOpened
             stackView.isHidden = !isOpened
             balanceLabel.textAlignment = isOpened ? .right : .left
+            gradientLayer?.frame.size
+                = .init(width: self.bounds.width,
+                        height: isOpened ? Constant.openHeight - minusHeight : Constant.closeHeight)
         }
     }
     var minusHeight: CGFloat = 0
+
+    private var gradientLayer: CAGradientLayer? {
+        return self.layer.sublayers?.first as? CAGradientLayer
+    }
     
     private let disposeBag = DisposeBag()
-    private var backgroundLayer = CAGradientLayer()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        self.layer.insertSublayer(backgroundLayer, at: 0)
         self.layer.cornerRadius = 16
     }
 
@@ -45,7 +54,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
         aliasLabel.text = account.alias
         let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView } 
         for i in 0..<account.transactions.count {
-            views[i].setup(account.transactions[i])
+            views[i].setup(account.transactions[i], color: layer.colors?.first)
         }
         for view in views {
             if !view.didSetup {
@@ -53,5 +62,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
                 minusHeight += 24
             }
         }
+        layer.frame = self.bounds
+        self.layer.insertSublayer(layer, at: 0)
     }
 }

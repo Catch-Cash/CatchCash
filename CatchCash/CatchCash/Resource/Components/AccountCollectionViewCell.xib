@@ -141,7 +141,6 @@
                     </button>
                 </subviews>
             </view>
-            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Pic-ge-EG4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="3HI-1s-FZW"/>
                 <constraint firstAttribute="trailing" secondItem="oeJ-pz-AR3" secondAttribute="trailing" constant="12" id="3mW-KL-szf"/>

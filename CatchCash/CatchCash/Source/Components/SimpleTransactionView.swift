@@ -9,15 +9,19 @@
 import UIKit
 
 final class SimpleTransactionView: UIView {
+    
     @IBOutlet weak var labelLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
     var didSetup = false
 
-    func setup(_ transaction: SimpleTransaction) {
+    func setup(_ transaction: SimpleTransaction, color: Any?) {
+        guard let color = color else { return }
         self.layer.cornerRadius = 6
         labelLabel.text = Label(transaction.label).title
         priceLabel.text = "\(transaction.price) 원"
+        labelLabel.textColor = UIColor(cgColor: color as! CGColor)
+        priceLabel.textColor = UIColor(cgColor: color as! CGColor)
         didSetup = true
     }
 }
