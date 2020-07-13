@@ -19,6 +19,7 @@ enum Label: Int {
     case pet
     case fashion
     case income
+    case none
 
     init(_ rawValue: Int) {
         if rawValue > 9 { self = .food }
@@ -39,6 +40,7 @@ extension Label {
         case .pet: return "반려동물"
         case .fashion: return "패션 미용"
         case .income: return "수입"
+        case .none: return "-"
         }
     }
 
@@ -54,6 +56,7 @@ extension Label {
         case .pet: return Color.label7
         case .fashion: return Color.label8
         case .income: return Color.label9
+        case .none: return Color.label10
         }
     }
 }

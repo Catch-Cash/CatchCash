@@ -13,11 +13,6 @@ import RxSwift
 
 final class AccountCollectionViewCell: UICollectionViewCell {
 
-    struct Constant {
-        static let openHeight: CGFloat = 235
-        static let closeHeight: CGFloat = 110
-    }
-
     @IBOutlet weak var bankLabel: UILabel!
     @IBOutlet weak var aliasLabel: UILabel!
     @IBOutlet weak var editingButton: UIButton!
@@ -25,36 +20,38 @@ final class AccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var balanceLabel: UILabel!
 
-    var isClosed = PublishSubject<Bool>()
-
+    var isOpened = false {
+        didSet {
+            editingButton.isHidden = !isOpened
+            recentlyTransactionLabel.isHidden = !isOpened
+            stackView.isHidden = !isOpened
+            balanceLabel.textAlignment = isOpened ? .right : .left
+        }
+    }
+    var minusHeight: CGFloat = 0
+    
     private let disposeBag = DisposeBag()
+    private var backgroundLayer = CAGradientLayer()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        bindIsClosed()
+
+        self.layer.insertSublayer(backgroundLayer, at: 0)
+        self.layer.cornerRadius = 16
     }
 
     func setup(_ account: Account, _ layer: CAGradientLayer) {
         bankLabel.text = account.bank
         aliasLabel.text = account.alias
-        let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView }
+        let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView } 
         for i in 0..<account.transactions.count {
             views[i].setup(account.transactions[i])
         }
-    }
-
-    private func bindIsClosed() {
-        isClosed.bind(to: editingButton.rx.isHidden).disposed(by: disposeBag)
-        isClosed.bind(to: recentlyTransactionLabel.rx.isHidden).disposed(by: disposeBag)
-        isClosed.bind(to: stackView.rx.isHidden).disposed(by: disposeBag)
-        isClosed.bind { [weak self] isClosed in
-            if isClosed {
-                self?.heightAnchor.constraint(equalToConstant: Constant.closeHeight).isActive = true
-            } else {
-                self?.heightAnchor.constraint(equalToConstant: Constant.openHeight).isActive = true
+        for view in views {
+            if !view.didSetup {
+                view.removeFromSuperview()
+                minusHeight += 24
             }
         }
-        .disposed(by: disposeBag)
     }
 }

@@ -134,6 +134,8 @@
 			children = (
 				BF38BFDA24B6BE82001C8C4B /* ViewModelType.swift */,
 				BF38BFDD24B70A03001C8C4B /* Constant.swift */,
+				BF589F1824B46A7900CFDA7C /* Color.swift */,
+				BF589F1A24B48DE300CFDA7C /* Gradient.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -181,7 +183,6 @@
 				BF38BFDC24B709F4001C8C4B /* Util */,
 				BF589F1E24B545D300CFDA7C /* App */,
 				BF589F1024B4506100CFDA7C /* Components */,
-				BF589F1524B4688D00CFDA7C /* Design System */,
 				BF38BF9E24B5866B001C8C4B /* Managers */,
 				BF38BFA124B58C4B001C8C4B /* Models */,
 				BF589F2424B5545500CFDA7C /* Networking */,
@@ -231,15 +232,6 @@
 				BF38BFE224B7F754001C8C4B /* ToastView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		BF589F1524B4688D00CFDA7C /* Design System */ = {
-			isa = PBXGroup;
-			children = (
-				BF589F1824B46A7900CFDA7C /* Color.swift */,
-				BF589F1A24B48DE300CFDA7C /* Gradient.swift */,
-			);
-			path = "Design System";
 			sourceTree = "<group>";
 		};
 		BF589F1E24B545D300CFDA7C /* App */ = {

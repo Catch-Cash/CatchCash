@@ -12,8 +12,12 @@ final class SimpleTransactionView: UIView {
     @IBOutlet weak var labelLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
+    var didSetup = false
+
     func setup(_ transaction: SimpleTransaction) {
+        self.layer.cornerRadius = 6
         labelLabel.text = Label(transaction.label).title
         priceLabel.text = "\(transaction.price) 원"
+        didSetup = true
     }
 }

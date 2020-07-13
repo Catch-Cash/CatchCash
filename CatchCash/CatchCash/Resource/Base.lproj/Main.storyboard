@@ -319,14 +319,18 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iq0-7j-PS2">
                                 <rect key="frame" x="16" y="174.5" width="382" height="638.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="12" id="UEv-js-yIx">
-                                    <size key="itemSize" width="165" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="12" id="IcO-Zm-EGh" customClass="AlignedCollectionViewFlowLayout" customModule="AlignedCollectionViewFlowLayout">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="QaV-3o-SPh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wdj-GW-M23"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XW5-oV-GPY">
                                 <rect key="frame" x="109.5" y="140.5" width="8" height="14.5"/>
@@ -372,6 +376,7 @@
                         <outlet property="accountCountLabel" destination="XW5-oV-GPY" id="OHX-1W-47h"/>
                         <outlet property="accountManageButton" destination="INf-PH-uh0" id="08f-n0-shC"/>
                         <outlet property="collectionView" destination="Iq0-7j-PS2" id="VGh-hF-I4C"/>
+                        <outlet property="collectionViewFlowLayout" destination="IcO-Zm-EGh" id="Q5O-R7-5c4"/>
                         <outlet property="refreshButton" destination="RuC-uW-1Rs" id="61f-PF-IbD"/>
                     </connections>
                 </viewController>

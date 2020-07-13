@@ -29,13 +29,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 거래" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-tl-S2n">
-                        <rect key="frame" x="16" y="68.5" width="37.5" height="12"/>
+                        <rect key="frame" x="16" y="69.5" width="37.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-pz-AR3">
-                        <rect key="frame" x="16" y="88.5" width="137" height="84"/>
+                        <rect key="frame" x="16" y="89.5" width="137" height="84"/>
                         <subviews>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Dt-lD-SWR" customClass="SimpleTransactionView" customModule="CatchCash" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="137" height="24"/>
@@ -125,7 +125,7 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000000 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yp6-fh-rcr">
-                        <rect key="frame" x="16" y="197.5" width="88.5" height="19.5"/>
+                        <rect key="frame" x="16" y="197.5" width="133" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -145,6 +145,7 @@
             <constraints>
                 <constraint firstItem="Pic-ge-EG4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="3HI-1s-FZW"/>
                 <constraint firstAttribute="trailing" secondItem="oeJ-pz-AR3" secondAttribute="trailing" constant="12" id="3mW-KL-szf"/>
+                <constraint firstAttribute="trailing" secondItem="Yp6-fh-rcr" secondAttribute="trailing" constant="16" id="5IO-ar-6Zj"/>
                 <constraint firstItem="oeJ-pz-AR3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="9JT-H5-QlS"/>
                 <constraint firstItem="ir8-tl-S2n" firstAttribute="leading" secondItem="4VK-k8-joq" secondAttribute="leading" id="DVg-LZ-6Wx"/>
                 <constraint firstItem="Yp6-fh-rcr" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-16" id="GRt-m4-hFB"/>
@@ -153,8 +154,7 @@
                 <constraint firstItem="lwM-Ya-ZcC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="WCu-Gh-6ye"/>
                 <constraint firstItem="Pic-ge-EG4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="X3L-bg-e9G"/>
                 <constraint firstItem="4VK-k8-joq" firstAttribute="top" secondItem="Pic-ge-EG4" secondAttribute="bottom" constant="5" id="cxd-KP-nit"/>
-                <constraint firstItem="ir8-tl-S2n" firstAttribute="top" secondItem="4VK-k8-joq" secondAttribute="bottom" constant="23" id="dwr-w9-SBG"/>
-                <constraint firstItem="Yp6-fh-rcr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oeJ-pz-AR3" secondAttribute="bottom" constant="24" id="eDc-1c-RUJ"/>
+                <constraint firstItem="Yp6-fh-rcr" firstAttribute="top" secondItem="oeJ-pz-AR3" secondAttribute="bottom" constant="24" id="eDc-1c-RUJ"/>
                 <constraint firstItem="Yp6-fh-rcr" firstAttribute="leading" secondItem="4VK-k8-joq" secondAttribute="leading" id="g6o-eA-cRe"/>
                 <constraint firstItem="oeJ-pz-AR3" firstAttribute="top" secondItem="ir8-tl-S2n" secondAttribute="bottom" constant="8" id="hmc-Sg-vro"/>
             </constraints>

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
+  - AlignedCollectionViewFlowLayout (1.1.2)
   - RxAlamofire (5.6.0):
     - RxAlamofire/Core (= 5.6.0)
   - RxAlamofire/Core (5.6.0):
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AlignedCollectionViewFlowLayout
   - RxAlamofire
   - RxCocoa
   - RxSwift
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlignedCollectionViewFlowLayout
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -28,11 +31,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   RxAlamofire: f34ddbab56fa2a36f99737f4d4ecc22288a1384f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 26683607d51130f812cc38f510e931833c6d67d8
+PODFILE CHECKSUM: 2cf5cc5eae1d12b6fd4e39af9f8f70601414dcd7
 
 COCOAPODS: 1.9.1

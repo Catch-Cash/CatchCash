@@ -10,5 +10,6 @@ target 'CatchCash' do
   pod 'RxCocoa'
   pod 'Alamofire'
   pod 'RxAlamofire'
+  pod 'AlignedCollectionViewFlowLayout'
 
 end

@@ -43,4 +43,5 @@ struct Color: MakeColor {
     static let label7 = make("ACACAC")
     static let label8 = make("CB6BEF")
     static let label9 = make("55E0F2")
+    static let label10 = make("606060")
 }

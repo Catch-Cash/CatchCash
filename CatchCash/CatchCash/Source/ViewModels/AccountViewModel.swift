@@ -38,8 +38,26 @@ final class AccountViewModel: ViewModelType {
                     result.append((account, Gradient.make(i)))
                 }
                 return result
-            case .noContent: break
-            default: error.accept(ErrorMessage.plain)
+            case .noContent:
+                break
+            default:
+                return [(Account(id: "0",
+                                 bank: "카카오뱅크",
+                                 alias: "테스트계좌",
+                                 banlance: "30000",
+                                 transactions: [.init(price: 2000, label: 3)]),
+                         Gradient.make(1)), (Account(id: "1",
+                                 bank: "농협",
+                                 alias: "테스트어쩌구",
+                                 banlance: "30000",
+                                 transactions: [.init(price: 3000, label: 10), .init(price: 2000, label: 3)]),
+                         Gradient.make(3)), (Account(id: "1",
+                                 bank: "농협",
+                                 alias: "테스트어쩌구",
+                                 banlance: "30000",
+                                 transactions: [.init(price: 3000, label: 10), .init(price: 2000, label: 3)]),
+                         Gradient.make(3))]
+                //                error.accept(ErrorMessage.plain)
             }
             return []
         }
