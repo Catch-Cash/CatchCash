@@ -18,8 +18,6 @@ final class AccountCollectionViewModel: ViewModelType {
         let result: Driver<String>
     }
 
-    private let disposeBag = DisposeBag()
-
     func transform(input: Input) -> Output {
         return .init(result: input.info.asObservable()
             .flatMap { Service.shared.updateAccount($0.0, alias: $0.1) }

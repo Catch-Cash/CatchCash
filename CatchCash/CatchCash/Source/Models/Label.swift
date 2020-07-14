@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Label: Int {
+enum Label: Int, Equatable {
     case food = 0
     case familyOccasion
     case saving

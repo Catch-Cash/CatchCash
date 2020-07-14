@@ -18,3 +18,17 @@ struct Identifier {
     static let transactionCell = "TransactionTableViewCell"
     static let loginVC = "LoginViewController"
 }
+
+private let dateFormatter = DateFormatter()
+
+struct Format {
+    static let plain = "yyyyMMdd"
+    static let sectionHeader = "M월 d일"
+
+    static func dateStringToString(_ string: String?) -> String {
+        dateFormatter.dateFormat = plain
+        guard let date = dateFormatter.date(from: string ?? "") else { return "" }
+        dateFormatter.dateFormat = sectionHeader
+        return dateFormatter.string(from: date)
+    }
+}

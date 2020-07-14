@@ -65,11 +65,6 @@ final class AccountViewController: UIViewController {
         bindViewModel()
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
-
     private func bindViewModel() {
         let input = AccountViewModel.Input(fetchAccounts: fetchAccouts.asDriver(),
                                            logoutTaps: logoutTaps.asSignal(),

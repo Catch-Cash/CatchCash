@@ -180,7 +180,7 @@
         <!--거래 내역-->
         <scene sceneID="zZh-Km-i2e">
             <objects>
-                <viewController id="EBT-oZ-nuA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionViewController" id="EBT-oZ-nuA" customClass="TransactionViewController" customModule="CatchCash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hzv-h6-bOt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,9 +191,9 @@
                                 <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-20-95p">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="40" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-20-95p">
                                 <rect key="frame" x="16" y="138" width="382" height="675"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXJ-Mv-l9N">
                                 <rect key="frame" x="290" y="76" width="100" height="22"/>
@@ -233,6 +233,10 @@
                         <viewLayoutGuide key="safeArea" id="NOU-EQ-fAX"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="거래 내역" image="doc.plaintext" catalog="system" id="mhR-O4-tim"/>
+                    <connections>
+                        <outlet property="filterButton" destination="FXJ-Mv-l9N" id="Q3B-cG-7SI"/>
+                        <outlet property="tableView" destination="Vz4-20-95p" id="ilx-eO-XUN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDb-a4-mxn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

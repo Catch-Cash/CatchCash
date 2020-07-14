@@ -31,6 +31,9 @@ struct Color: MakeColor {
     static let expense = make("F6416C")
     static let saving = make("FFCB33")
 
+    static let transactionIncome = make("3EBBE8")
+    static let transactionExpense = make("EA5455")
+
     // Label
     static let labelDefault = make("606060")
     static let label0 = make("4CD3C2")
@@ -44,4 +47,7 @@ struct Color: MakeColor {
     static let label8 = make("CB6BEF")
     static let label9 = make("55E0F2")
     static let label10 = make("606060")
+
+    // Util
+    static let header = make("303030")
 }
