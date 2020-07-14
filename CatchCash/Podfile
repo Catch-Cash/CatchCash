@@ -11,5 +11,6 @@ target 'CatchCash' do
   pod 'Alamofire'
   pod 'RxAlamofire'
   pod 'AlignedCollectionViewFlowLayout'
+  pod 'RxDataSources', '~> 4.0'
 
 end
