@@ -65,6 +65,11 @@ final class AccountViewController: UIViewController {
         bindViewModel()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+
     private func bindViewModel() {
         let input = AccountViewModel.Input(fetchAccounts: fetchAccouts.asDriver(),
                                            logoutTaps: logoutTaps.asSignal(),
@@ -118,6 +123,10 @@ extension AccountViewController: UICollectionViewDelegateFlowLayout, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.performBatchUpdates({
             guard let cell = collectionView.cellForItem(at: indexPath) as? AccountCollectionViewCell else { return }
+            if cell.isEditingMode {
+                self.showToast("수정 중에는 닫을 수 없습니다")
+                return
+            }
             cell.isOpened.toggle()
             collectionView.setNeedsLayout()
         }, completion: nil)

@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VK-k8-joq">
-                        <rect key="frame" x="16" y="31" width="31.5" height="14.5"/>
+                        <rect key="frame" x="16" y="31" width="137" height="14.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -138,7 +138,14 @@
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="ellipsis.circle.fill" catalog="system"/>
+                        <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                     </button>
+                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름은 10자 제한" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="R83-zs-vm7">
+                        <rect key="frame" x="16" y="34" width="137" height="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    </textField>
                 </subviews>
             </view>
             <constraints>
@@ -149,9 +156,13 @@
                 <constraint firstItem="ir8-tl-S2n" firstAttribute="leading" secondItem="4VK-k8-joq" secondAttribute="leading" id="DVg-LZ-6Wx"/>
                 <constraint firstItem="Yp6-fh-rcr" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-16" id="GRt-m4-hFB"/>
                 <constraint firstItem="4VK-k8-joq" firstAttribute="leading" secondItem="Pic-ge-EG4" secondAttribute="leading" id="GXp-Tw-fHe"/>
+                <constraint firstAttribute="trailing" secondItem="R83-zs-vm7" secondAttribute="trailing" constant="12" id="GY5-GF-Gk9"/>
+                <constraint firstAttribute="trailing" secondItem="4VK-k8-joq" secondAttribute="trailing" constant="12" id="TGr-GY-4XC"/>
                 <constraint firstAttribute="trailing" secondItem="lwM-Ya-ZcC" secondAttribute="trailing" constant="12" id="Tp7-bL-RRZ"/>
+                <constraint firstItem="R83-zs-vm7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="V6X-S7-WNF"/>
                 <constraint firstItem="lwM-Ya-ZcC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="WCu-Gh-6ye"/>
                 <constraint firstItem="Pic-ge-EG4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="X3L-bg-e9G"/>
+                <constraint firstItem="R83-zs-vm7" firstAttribute="top" secondItem="Pic-ge-EG4" secondAttribute="bottom" constant="8" id="aDi-4L-wiI"/>
                 <constraint firstItem="4VK-k8-joq" firstAttribute="top" secondItem="Pic-ge-EG4" secondAttribute="bottom" constant="5" id="cxd-KP-nit"/>
                 <constraint firstItem="Yp6-fh-rcr" firstAttribute="top" secondItem="oeJ-pz-AR3" secondAttribute="bottom" constant="24" id="eDc-1c-RUJ"/>
                 <constraint firstItem="Yp6-fh-rcr" firstAttribute="leading" secondItem="4VK-k8-joq" secondAttribute="leading" id="g6o-eA-cRe"/>
@@ -161,6 +172,7 @@
             <size key="customSize" width="567" height="408"/>
             <connections>
                 <outlet property="aliasLabel" destination="4VK-k8-joq" id="dcM-y6-M2G"/>
+                <outlet property="aliasTextField" destination="R83-zs-vm7" id="cfA-Sb-YjL"/>
                 <outlet property="balanceLabel" destination="Yp6-fh-rcr" id="rBf-Td-3YY"/>
                 <outlet property="bankLabel" destination="Pic-ge-EG4" id="3Lb-vn-6Om"/>
                 <outlet property="editingButton" destination="lwM-Ya-ZcC" id="aLa-yY-bdr"/>
@@ -171,6 +183,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

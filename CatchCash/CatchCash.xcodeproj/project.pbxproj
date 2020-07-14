@@ -23,6 +23,7 @@
 		BF38BFDE24B70A03001C8C4B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFDD24B70A03001C8C4B /* Constant.swift */; };
 		BF38BFE124B7F6B4001C8C4B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */; };
 		BF38BFE324B7F754001C8C4B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFE224B7F754001C8C4B /* ToastView.swift */; };
+		BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */; };
 		BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */; };
 		BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF024B411CE00CFDA7C /* Main.storyboard */; };
 		BF589EF424B411D300CFDA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF324B411D300CFDA7C /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		BF38BFDD24B70A03001C8C4B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BF38BFE224B7F754001C8C4B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewModel.swift; sourceTree = "<group>"; };
 		BF589EE724B411CE00CFDA7C /* CatchCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF589EF124B411CE00CFDA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BF38BFD424B6A993001C8C4B /* AccountViewModel.swift */,
+				BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				BF38BFD524B6A993001C8C4B /* AccountViewModel.swift in Sources */,
 				BF38BFE324B7F754001C8C4B /* ToastView.swift in Sources */,
 				BF38BFE124B7F6B4001C8C4B /* UIViewController.swift in Sources */,
+				BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewModel.swift in Sources */,
 				BF589F2824B56B3800CFDA7C /* Service.swift in Sources */,
 				BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */,
 				BF589F2624B5573000CFDA7C /* API.swift in Sources */,
