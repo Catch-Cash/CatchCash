@@ -12,12 +12,13 @@ import Alamofire
 import RxAlamofire
 import RxSwift
 
-private func requestData(_ api: API) -> Observable<(HTTPURLResponse, Data)> {
-    return requestData(api.method,
-                       api.baseURL + api.path,
-                       parameters: api.parameters,
-                       encoding: JSONEncoding.prettyPrinted,
-                       headers: api.headers)
+private func requestData(_ api: API, encoding: ParameterEncoding = URLEncoding.default)
+    -> Observable<(HTTPURLResponse, Data)> {
+        return requestData(api.method,
+                           api.baseURL + api.path,
+                           parameters: api.parameters,
+                           encoding: JSONEncoding.prettyPrinted,
+                           headers: api.headers)
 }
 
 protocol APIProvider {
@@ -28,7 +29,7 @@ protocol APIProvider {
 
     func fetchAccounts() -> Observable<NetworkingResult<[Account]>>
     func updateAccount(_ id: String, alias: String) -> Observable<NetworkingResult<Bool>>
-    func fetchTransactions(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>>
+    func fetchTransactions(_ id: String?, page: Int) -> Observable<NetworkingResult<TransactionResponse>>
     func updateTransaction(_ transaction: Transaction) -> Observable<NetworkingResult<Bool>>
     func fetchGoals() -> Observable<NetworkingResult<GoalResponse>>
     func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Bool>>
@@ -169,8 +170,8 @@ final class Service: APIProvider {
         .retry()
     }
 
-    func fetchTransactions(_ id: String?) -> Observable<NetworkingResult<TransactionResponse>> {
-        return requestData(.transaction(id: id))
+    func fetchTransactions(_ id: String?, page: Int = 1) -> Observable<NetworkingResult<TransactionResponse>> {
+        return requestData(.transaction(id: id, page: page), encoding: URLEncoding.queryString)
             .map { [weak self] response, data -> NetworkingResult<TransactionResponse> in
                 switch response.statusCode {
                 case 200:

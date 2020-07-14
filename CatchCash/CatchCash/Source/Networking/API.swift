@@ -17,7 +17,7 @@ enum API {
     case renewalToken
     case account
     case updateAccount(id: String, alias:String)
-    case transaction(id: String?)
+    case transaction(id: String?, page: Int)
     case updateTransaction(Transaction)
     case goal
     case updateGoal(UsageCategory, goal: Int)
@@ -45,7 +45,7 @@ extension API {
         case .account, .updateAccount:
             return "/account"
 
-        case .transaction(let id):
+        case .transaction(let id, _):
             if let id = id {
                 return "account/list/" + id
             }
@@ -100,6 +100,9 @@ extension API {
 
         case .updateAccount(let id, let alias):
             return ["fintech_use_num": id, "account_alias": alias]
+
+        case .transaction(_, let page):
+            return ["page_num": page]
 
         case .updateTransaction(let transaction):
             return transaction.dictionary
