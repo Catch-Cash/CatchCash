@@ -22,7 +22,7 @@ enum Label: Int, Equatable {
     case none
 
     init(_ rawValue: Int) {
-        if rawValue > 9 { self = .food }
+        if rawValue > 10 { self = .food }
         self.init(rawValue: rawValue)!
     }
 }
@@ -30,7 +30,7 @@ enum Label: Int, Equatable {
 extension Label {
     var title: String {
         switch self {
-        case .food: return "음식"
+        case .food: return "식비"
         case .familyOccasion: return "경조"
         case .saving: return "저축"
         case .culture: return "문화"

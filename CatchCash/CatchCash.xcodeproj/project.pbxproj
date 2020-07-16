@@ -23,7 +23,7 @@
 		BF38BFDE24B70A03001C8C4B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFDD24B70A03001C8C4B /* Constant.swift */; };
 		BF38BFE124B7F6B4001C8C4B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */; };
 		BF38BFE324B7F754001C8C4B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFE224B7F754001C8C4B /* ToastView.swift */; };
-		BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */; };
+		BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewCellModel.swift */; };
 		BF38BFED24BD333F001C8C4B /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFEC24BD333F001C8C4B /* TransactionViewController.swift */; };
 		BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */; };
 		BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF589EF024B411CE00CFDA7C /* Main.storyboard */; };
@@ -38,10 +38,13 @@
 		BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1624B4689D00CFDA7C /* UsageCategory.swift */; };
 		BF589F1924B46A7900CFDA7C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1824B46A7900CFDA7C /* Color.swift */; };
 		BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F1A24B48DE300CFDA7C /* Gradient.swift */; };
-		BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF589F2224B54D6100CFDA7C /* LabelPicker.xib */; };
 		BF589F2624B5573000CFDA7C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F2524B5573000CFDA7C /* API.swift */; };
 		BF589F2824B56B3800CFDA7C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF589F2724B56B3800CFDA7C /* Service.swift */; };
 		BF5ABFD724BD430B00C2C82B /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */; };
+		BF5ABFD924BDCBA500C2C82B /* LabelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFD824BDCBA500C2C82B /* LabelPickerViewController.swift */; };
+		BF5ABFDB24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */; };
+		BF7D85B524C015D600E7DF10 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */; };
+		BF7D85B724C01D7A00E7DF10 /* TransactionTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +66,7 @@
 		BF38BFDD24B70A03001C8C4B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BF38BFE224B7F754001C8C4B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewModel.swift; sourceTree = "<group>"; };
+		BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		BF38BFEC24BD333F001C8C4B /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		BF589EE724B411CE00CFDA7C /* CatchCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF589EEA24B411CE00CFDA7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,10 +83,13 @@
 		BF589F1624B4689D00CFDA7C /* UsageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCategory.swift; sourceTree = "<group>"; };
 		BF589F1824B46A7900CFDA7C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BF589F1A24B48DE300CFDA7C /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		BF589F2224B54D6100CFDA7C /* LabelPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelPicker.xib; sourceTree = "<group>"; };
 		BF589F2524B5573000CFDA7C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BF589F2724B56B3800CFDA7C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		BF5ABFD824BDCBA500C2C82B /* LabelPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerViewController.swift; sourceTree = "<group>"; };
+		BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
+		BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		BF38BFD024B6A950001C8C4B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF5ABFD824BDCBA500C2C82B /* LabelPickerViewController.swift */,
 				BF38BFD224B6A986001C8C4B /* AccountViewController.swift */,
 				BF38BFEC24BD333F001C8C4B /* TransactionViewController.swift */,
 			);
@@ -132,8 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				BF38BFD424B6A993001C8C4B /* AccountViewModel.swift */,
-				BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewModel.swift */,
+				BF38BFEA24BD2A8A001C8C4B /* AccountCollectionViewCellModel.swift */,
 				BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */,
+				BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -145,6 +153,7 @@
 				BF38BFDD24B70A03001C8C4B /* Constant.swift */,
 				BF589F1824B46A7900CFDA7C /* Color.swift */,
 				BF589F1A24B48DE300CFDA7C /* Gradient.swift */,
+				BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -225,7 +234,6 @@
 			children = (
 				BF589F0424B4411300CFDA7C /* AccountCollectionViewCell.xib */,
 				BF589F0924B445CE00CFDA7C /* TransactionTableViewCell.xib */,
-				BF589F2224B54D6100CFDA7C /* LabelPicker.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,11 +242,12 @@
 			isa = PBXGroup;
 			children = (
 				BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */,
-				BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */,
 				BF589F1124B4510000CFDA7C /* GoalView.swift */,
+				BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */,
 				BF589F1324B466CB00CFDA7C /* PieChartView.swift */,
 				BF38BFD624B6AB1F001C8C4B /* SimpleTransactionView.swift */,
 				BF38BFE224B7F754001C8C4B /* ToastView.swift */,
+				BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -341,7 +350,6 @@
 			files = (
 				BF589EF724B411D300CFDA7C /* LaunchScreen.storyboard in Resources */,
 				BF589EF424B411D300CFDA7C /* Assets.xcassets in Resources */,
-				BF589F2324B54D6100CFDA7C /* LabelPicker.xib in Resources */,
 				BF589F0624B4411300CFDA7C /* AccountCollectionViewCell.xib in Resources */,
 				BF589EF224B411CE00CFDA7C /* Main.storyboard in Resources */,
 				BF589F0B24B445CE00CFDA7C /* TransactionTableViewCell.xib in Resources */,
@@ -398,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF38BFDB24B6BE82001C8C4B /* ViewModelType.swift in Sources */,
+				BF5ABFDB24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift in Sources */,
 				BF589F0524B4411300CFDA7C /* AccountCollectionViewCell.swift in Sources */,
 				BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */,
 				BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */,
@@ -412,12 +421,15 @@
 				BF38BFD324B6A986001C8C4B /* AccountViewController.swift in Sources */,
 				BF38BFA524B5995B001C8C4B /* Responses.swift in Sources */,
 				BF38BFD524B6A993001C8C4B /* AccountViewModel.swift in Sources */,
+				BF5ABFD924BDCBA500C2C82B /* LabelPickerViewController.swift in Sources */,
 				BF38BFE324B7F754001C8C4B /* ToastView.swift in Sources */,
 				BF38BFE124B7F6B4001C8C4B /* UIViewController.swift in Sources */,
-				BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewModel.swift in Sources */,
+				BF38BFEB24BD2A8A001C8C4B /* AccountCollectionViewCellModel.swift in Sources */,
 				BF589F2824B56B3800CFDA7C /* Service.swift in Sources */,
 				BF589F1724B4689D00CFDA7C /* UsageCategory.swift in Sources */,
+				BF7D85B524C015D600E7DF10 /* PresentationViewController.swift in Sources */,
 				BF589F2624B5573000CFDA7C /* API.swift in Sources */,
+				BF7D85B724C01D7A00E7DF10 /* TransactionTableViewCellModel.swift in Sources */,
 				BF38BFCD24B69599001C8C4B /* NetworkingResults.swift in Sources */,
 				BF38BFD724B6AB1F001C8C4B /* SimpleTransactionView.swift in Sources */,
 				BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */,

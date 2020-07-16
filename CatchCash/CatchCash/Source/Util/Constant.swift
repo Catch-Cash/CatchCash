@@ -13,10 +13,17 @@ struct ErrorMessage {
     static let notFound = "정보를 찾을 수 없습니다."
 }
 
+struct Message {
+    static let text = "수정할 텍스트를 선택해주세요"
+    static let textAndLabel = "수정할 텍스트나 라벨을 선택해주세요"
+}
+
 struct Identifier {
     static let accountCell = "AccountCollectionViewCell"
     static let transactionCell = "TransactionTableViewCell"
+    static let labelCell = "LabelCollectionViewCell"
     static let loginVC = "LoginViewController"
+    static let labelVC = "LabelPickerViewController"
 }
 
 private let dateFormatter = DateFormatter()

@@ -29,6 +29,7 @@ final class TransactionViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let fetchTransactions = BehaviorRelay<String?>(value: nil)
     private let loadTransactions = PublishRelay<Void>()
+    private let touchesBegan = PublishRelay<Void>()
 
     private lazy var dataSource: TransactionDataSource = {
         let configureCell: (TableViewSectionedDataSource<TransactionSectionModel>, UITableView, IndexPath, Transaction)
@@ -44,13 +45,15 @@ final class TransactionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        bindViewModel()
+    }
 
+    private func setupTableView() {
         tableView.register(UINib(nibName: Identifier.transactionCell,
                                  bundle: nil),
                            forCellReuseIdentifier: Identifier.transactionCell)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
-
-        bindViewModel()
     }
 
     private func bindViewModel() {
@@ -73,6 +76,18 @@ extension TransactionViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? TransactionTableViewCell
             else { return Constant.closeHeight }
         return cell.isOpened ? Constant.openHeight : Constant.closeHeight
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.performBatchUpdates({
+            guard let cell = tableView.cellForRow(at: indexPath) as? TransactionTableViewCell else { return }
+            if cell.isEditingMode {
+                self.showToast("수정 중에는 닫을 수 없습니다")
+                return
+            }
+            cell.isOpened.toggle()
+            tableView.setNeedsLayout()
+        }, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

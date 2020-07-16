@@ -9,20 +9,19 @@
 import RxSwift
 import RxCocoa
 
-final class AccountCollectionViewModel: ViewModelType {
+final class AccountCollectionViewCellModel: ViewModelType {
     struct Input {
         let info: Driver<(id: String, String)>
     }
 
     struct Output {
-        let result: Driver<String>
+        let result: Driver<String?>
     }
 
     func transform(input: Input) -> Output {
         return .init(result: input.info.asObservable()
             .flatMap { Service.shared.updateAccount($0.0, alias: $0.1) }
-            .filter { $0 == .noContent }
-            .withLatestFrom(input.info.map { $0.1 })
-            .asDriver(onErrorJustReturn: ""))
+            .map { $0 == .noContent ? nil : "오류가 발생했습니다" }
+            .asDriver(onErrorJustReturn: nil))
     }
 }

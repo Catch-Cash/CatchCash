@@ -42,6 +42,10 @@ final class AccountCollectionViewCell: UICollectionViewCell {
             self.editingButton.isSelected = isEditingMode
             self.aliasLabel.isHidden = isEditingMode
             self.aliasTextField.isHidden = !isEditingMode
+            if isEditingMode {
+                (self.window?.rootViewController as? UITabBarController)?.viewControllers?
+                    .first?.showToast(Message.text)
+            }
         }
     }
     var minusHeight: CGFloat = 0
@@ -50,8 +54,9 @@ final class AccountCollectionViewCell: UICollectionViewCell {
         return self.layer.sublayers?.first as? CAGradientLayer
     }
     private var id = ""
+    private var defaultAlias = ""
 
-    private let viewModel = AccountCollectionViewModel()
+    private let viewModel = AccountCollectionViewCellModel()
     private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
@@ -61,15 +66,18 @@ final class AccountCollectionViewCell: UICollectionViewCell {
 
         editingButton.rx.tap
             .bind { [weak self] _ in
+                if self?.isEditingMode == true { self?.aliasTextField.resignFirstResponder() }
                 self?.isEditingMode.toggle()
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
         
         bindViewModel()
     }
 
     func setup(_ account: Account, _ layer: CAGradientLayer) {
         id = account.id
+        defaultAlias = account.alias
+
         bankLabel.text = account.bank
         aliasLabel.text = account.alias
         let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView } 
@@ -87,20 +95,33 @@ final class AccountCollectionViewCell: UICollectionViewCell {
     }
 
     private func bindViewModel() {
-        let input = AccountCollectionViewModel.Input(
-            info: aliasTextField.rx.text.orEmpty
-                .distinctUntilChanged()
-                .filter { [weak self] in self?.aliasLabel.text != $0 }
-                .map { [weak self] in
-                    guard let self = self else { return ("","") }
-                    return (self.id, $0)
-                }
-                .asDriver(onErrorJustReturn: ("",""))
+        let info = aliasTextField.rx.text.orEmpty
+            .distinctUntilChanged()
+            .filter { [weak self] in self?.aliasLabel.text != $0 }
+            .map { [weak self] text -> (id: String, String) in
+                guard let self = self else { return ("", "") }
+                return (self.id, text)
+            }
+
+        let input = AccountCollectionViewCellModel.Input(
+            info: editingButton.rx.tap
+                .filter { [weak self] in self?.isEditingMode == true }
+                .withLatestFrom(info)
+                .asDriver(onErrorJustReturn: ("", ""))
         )
 
         let output = viewModel.transform(input: input)
 
-        output.result.drive(aliasLabel.rx.text).disposed(by: disposeBag)
+        output.result
+            .filter { [weak self] result in
+                if result == nil { self?.aliasLabel.text = self?.aliasTextField.text }
+                return result != nil
+            }
+            .drive(onNext: { [weak self] _ in
+                self?.aliasLabel.text = self?.defaultAlias
+                self?.aliasTextField.text = self?.defaultAlias
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -108,10 +129,5 @@ extension AccountCollectionViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        aliasTextField.resignFirstResponder()
     }
 }
