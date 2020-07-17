@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SimpleAccount: Equatable {
+struct SimpleAccount: Codable & Equatable {
     let id: String
     let alias: String
 }

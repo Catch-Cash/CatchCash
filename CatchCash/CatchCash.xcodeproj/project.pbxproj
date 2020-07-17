@@ -18,7 +18,6 @@
 		BF38BFD324B6A986001C8C4B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD224B6A986001C8C4B /* AccountViewController.swift */; };
 		BF38BFD524B6A993001C8C4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD424B6A993001C8C4B /* AccountViewModel.swift */; };
 		BF38BFD724B6AB1F001C8C4B /* SimpleTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD624B6AB1F001C8C4B /* SimpleTransactionView.swift */; };
-		BF38BFD924B6BA7D001C8C4B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD824B6BA7D001C8C4B /* Label.swift */; };
 		BF38BFDB24B6BE82001C8C4B /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFDA24B6BE82001C8C4B /* ViewModelType.swift */; };
 		BF38BFDE24B70A03001C8C4B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFDD24B70A03001C8C4B /* Constant.swift */; };
 		BF38BFE124B7F6B4001C8C4B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */; };
@@ -45,6 +44,7 @@
 		BF5ABFDB24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */; };
 		BF7D85B524C015D600E7DF10 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */; };
 		BF7D85B724C01D7A00E7DF10 /* TransactionTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellModel.swift */; };
+		BF7D85BE24C1468700E7DF10 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD824B6BA7D001C8C4B /* Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -411,9 +411,9 @@
 				BF589F1424B466CB00CFDA7C /* PieChartView.swift in Sources */,
 				BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */,
 				BF38BFED24BD333F001C8C4B /* TransactionViewController.swift in Sources */,
+				BF7D85BE24C1468700E7DF10 /* Label.swift in Sources */,
 				BF589F1924B46A7900CFDA7C /* Color.swift in Sources */,
 				BF38BFA024B58686001C8C4B /* TokenManager.swift in Sources */,
-				BF38BFD924B6BA7D001C8C4B /* Label.swift in Sources */,
 				BF589F0A24B445CE00CFDA7C /* TransactionTableViewCell.swift in Sources */,
 				BF589EEB24B411CE00CFDA7C /* AppDelegate.swift in Sources */,
 				BF589F1224B4510000CFDA7C /* GoalView.swift in Sources */,

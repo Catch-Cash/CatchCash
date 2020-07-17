@@ -22,6 +22,8 @@ struct Identifier {
     static let accountCell = "AccountCollectionViewCell"
     static let transactionCell = "TransactionTableViewCell"
     static let labelCell = "LabelCollectionViewCell"
+    static let filterCell = "FilterTableViewCell"
+    
     static let loginVC = "LoginViewController"
     static let labelVC = "LabelPickerViewController"
 }

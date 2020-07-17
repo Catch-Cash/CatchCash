@@ -11,7 +11,7 @@ import RxCocoa
 
 final class TransactionViewModel: ViewModelType {
     struct Input {
-        let fetchTransactions: Driver<String?>
+        let fetchTransactions: Driver<SimpleAccount?>
         let loadTransactions: Signal<Void>
     }
 
@@ -27,7 +27,7 @@ final class TransactionViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let error = PublishRelay<String>()
         let fetchTransactions = input.fetchTransactions.asObservable()
-            .flatMap { Service.shared.fetchTransactions($0) }
+            .flatMap { Service.shared.fetchTransactions($0?.id) }
             .map { [weak self] result -> [Transaction] in
                 switch result {
                 case .success(let response):
@@ -45,9 +45,9 @@ final class TransactionViewModel: ViewModelType {
             .withLatestFrom(isNextPageExists)
             .filter { $0 }
             .withLatestFrom(input.fetchTransactions.asObservable())
-            .flatMap { [weak self] id -> Observable<NetworkingResult<TransactionResponse>> in
+            .flatMap { [weak self] account -> Observable<NetworkingResult<TransactionResponse>> in
                 guard let self = self else { return .never() }
-                return Service.shared.fetchTransactions(id, page: self.page)
+                return Service.shared.fetchTransactions(account?.id, page: self.page)
         }
         .withLatestFrom(fetchTransactions) { [weak self] result, old -> [Transaction] in
             switch result {

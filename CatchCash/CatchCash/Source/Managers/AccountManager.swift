@@ -11,12 +11,15 @@ import Foundation
 struct AccountManager {
     private static let ud = UserDefaults.standard
 
-    static var accounts: [SimpleAccount] {
+    static var accounts: [SimpleAccount]? {
         get {
-            return ud.array(forKey: "accounts") as? [SimpleAccount] ?? []
+            guard let data = ud.data(forKey: "accounts") else { return nil }
+            let accounts = try? JSONDecoder().decode([SimpleAccount].self, from: data)
+            return accounts
         }
         set {
-            ud.set(newValue, forKey: "accounts")
+            let data = try? JSONEncoder().encode(newValue)
+            ud.set(data, forKey: "accounts")
         }
     }
 
