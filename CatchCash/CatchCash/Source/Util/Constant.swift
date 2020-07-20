@@ -16,6 +16,7 @@ struct ErrorMessage {
 struct Message {
     static let text = "수정할 텍스트를 선택해주세요"
     static let textAndLabel = "수정할 텍스트나 라벨을 선택해주세요"
+    static let goal = "목표 수치를 재설정 하세요"
 }
 
 struct Identifier {

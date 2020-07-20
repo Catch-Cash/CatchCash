@@ -11,154 +11,22 @@
         <!--목표-->
         <scene sceneID="LiJ-mb-EUl">
             <objects>
-                <viewController id="qCy-Vl-PLD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalViewController" id="qCy-Vl-PLD" customClass="GoalViewController" customModule="CatchCash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TfZ-hw-OXb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0월의 목표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsN-le-j9G">
                                 <rect key="frame" x="16" y="73" width="104.5" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="xep-Kj-kxc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="PbD-Sf-3DY">
                                 <rect key="frame" x="16" y="138" width="382" height="651"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUy-Hy-jc2" customClass="GoalView" customModule="CatchCash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="547"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhj-QM-Uaj">
-                                                <rect key="frame" x="16" y="12" width="35" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wj-aV-eBl">
-                                                <rect key="frame" x="346" y="16" width="20" height="22"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="ellipsis.circle.fill" catalog="system"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정한 목표 수치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIo-PS-VaQ">
-                                                <rect key="frame" x="16" y="59" width="105.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 수치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWo-AO-5XE">
-                                                <rect key="frame" x="16" y="85.5" width="60" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJs-D8-KmX">
-                                                <rect key="frame" x="290" y="59" width="76" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQv-sW-ZO8">
-                                                <rect key="frame" x="290" y="85.5" width="76" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EE-Dm-INb" customClass="PieChartView" customModule="CatchCash" customModuleProvider="target">
-                                                <rect key="frame" x="52" y="173" width="278" height="278"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="3EE-Dm-INb" secondAttribute="height" id="c2I-KX-3rX"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Zhj-QM-Uaj" firstAttribute="top" secondItem="bUy-Hy-jc2" secondAttribute="top" constant="12" id="5iS-zJ-5m6"/>
-                                            <constraint firstAttribute="trailing" secondItem="1wj-aV-eBl" secondAttribute="trailing" constant="16" id="7Rj-8v-y6U"/>
-                                            <constraint firstItem="PWo-AO-5XE" firstAttribute="leading" secondItem="aIo-PS-VaQ" secondAttribute="leading" id="7tB-n6-J3i"/>
-                                            <constraint firstItem="PWo-AO-5XE" firstAttribute="top" secondItem="aIo-PS-VaQ" secondAttribute="bottom" constant="7" id="ARX-G2-4my"/>
-                                            <constraint firstItem="oQv-sW-ZO8" firstAttribute="centerY" secondItem="PWo-AO-5XE" secondAttribute="centerY" id="Eww-ql-cEA"/>
-                                            <constraint firstItem="zJs-D8-KmX" firstAttribute="trailing" secondItem="1wj-aV-eBl" secondAttribute="trailing" id="N3J-0s-m9q"/>
-                                            <constraint firstItem="zJs-D8-KmX" firstAttribute="centerY" secondItem="aIo-PS-VaQ" secondAttribute="centerY" id="Phw-Ez-XZK"/>
-                                            <constraint firstItem="aIo-PS-VaQ" firstAttribute="top" secondItem="Zhj-QM-Uaj" secondAttribute="bottom" constant="23" id="QDc-xM-auC"/>
-                                            <constraint firstItem="1wj-aV-eBl" firstAttribute="top" secondItem="bUy-Hy-jc2" secondAttribute="top" constant="16" id="Wco-PK-ULf"/>
-                                            <constraint firstItem="aIo-PS-VaQ" firstAttribute="leading" secondItem="Zhj-QM-Uaj" secondAttribute="leading" id="gdx-ap-alU"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3EE-Dm-INb" secondAttribute="bottom" constant="48" id="iT4-2N-pFf"/>
-                                            <constraint firstItem="3EE-Dm-INb" firstAttribute="leading" secondItem="bUy-Hy-jc2" secondAttribute="leading" constant="52" id="ma2-qK-Pxh"/>
-                                            <constraint firstItem="oQv-sW-ZO8" firstAttribute="trailing" secondItem="zJs-D8-KmX" secondAttribute="trailing" id="mzf-IW-6rJ"/>
-                                            <constraint firstItem="Zhj-QM-Uaj" firstAttribute="leading" secondItem="bUy-Hy-jc2" secondAttribute="leading" constant="16" id="tAu-s2-2hz"/>
-                                            <constraint firstItem="3EE-Dm-INb" firstAttribute="top" secondItem="PWo-AO-5XE" secondAttribute="bottom" constant="68" id="tkE-gN-ZCw"/>
-                                            <constraint firstAttribute="trailing" secondItem="3EE-Dm-INb" secondAttribute="trailing" constant="52" id="vmF-kL-m7z"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="currentLabel" destination="PWo-AO-5XE" id="7Oy-7J-9Pf"/>
-                                            <outlet property="currentPriceLabel" destination="oQv-sW-ZO8" id="f76-Ys-roM"/>
-                                            <outlet property="editButton" destination="1wj-aV-eBl" id="CWn-3z-ktf"/>
-                                            <outlet property="goalLabel" destination="aIo-PS-VaQ" id="1Rx-xv-upV"/>
-                                            <outlet property="goalPriceLabel" destination="zJs-D8-KmX" id="7rW-z6-6Xe"/>
-                                            <outlet property="pieChartView" destination="3EE-Dm-INb" id="Jej-jZ-rC5"/>
-                                            <outlet property="titleLabel" destination="Zhj-QM-Uaj" id="Bfo-J0-mct"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2r-Mc-C6e" customClass="GoalView" customModule="CatchCash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="559" width="382" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJm-Ct-JKi">
-                                                <rect key="frame" x="16" y="10.5" width="28" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="달성률 50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSh-dD-yhu">
-                                                <rect key="frame" x="305.5" y="13" width="60.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="MJm-Ct-JKi" firstAttribute="leading" secondItem="M2r-Mc-C6e" secondAttribute="leading" constant="16" id="31O-3g-xsy"/>
-                                            <constraint firstAttribute="trailing" secondItem="kSh-dD-yhu" secondAttribute="trailing" constant="16" id="bBT-d9-jKu"/>
-                                            <constraint firstAttribute="height" constant="40" id="k8W-kL-7ww"/>
-                                            <constraint firstItem="MJm-Ct-JKi" firstAttribute="centerY" secondItem="M2r-Mc-C6e" secondAttribute="centerY" id="kvq-EA-0OD"/>
-                                            <constraint firstItem="kSh-dD-yhu" firstAttribute="centerY" secondItem="M2r-Mc-C6e" secondAttribute="centerY" id="sid-SW-CL1"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="achievementRateLabel" destination="kSh-dD-yhu" id="qwU-oK-Baz"/>
-                                            <outlet property="subTitleLabel" destination="MJm-Ct-JKi" id="mml-Vi-ooN"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-qX-86Z" customClass="GoalView" customModule="CatchCash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="611" width="382" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저축" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhJ-kQ-Da0">
-                                                <rect key="frame" x="16" y="10.5" width="28" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="달성률 50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XB1-jC-CCD">
-                                                <rect key="frame" x="305.5" y="13" width="60.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="XB1-jC-CCD" secondAttribute="trailing" constant="16" id="0ua-6y-ITS"/>
-                                            <constraint firstAttribute="height" constant="40" id="43p-O2-Faz"/>
-                                            <constraint firstItem="nhJ-kQ-Da0" firstAttribute="leading" secondItem="1Wv-qX-86Z" secondAttribute="leading" constant="16" id="GWX-Zt-6Hs"/>
-                                            <constraint firstItem="XB1-jC-CCD" firstAttribute="centerY" secondItem="1Wv-qX-86Z" secondAttribute="centerY" id="Lde-3v-eXX"/>
-                                            <constraint firstItem="nhJ-kQ-Da0" firstAttribute="centerY" secondItem="1Wv-qX-86Z" secondAttribute="centerY" id="LoT-oc-QF4"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="achievementRateLabel" destination="XB1-jC-CCD" id="YBY-44-JjZ"/>
-                                            <outlet property="subTitleLabel" destination="nhJ-kQ-Da0" id="NI4-Nc-LaY"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -173,6 +41,10 @@
                         <viewLayoutGuide key="safeArea" id="nWP-ec-Pqz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="목표" image="chart.bar" catalog="system" selectedImage="chart.bar" id="lVE-M1-ACR"/>
+                    <connections>
+                        <outlet property="goalStackView" destination="PbD-Sf-3DY" id="EhE-XF-h6n"/>
+                        <outlet property="monthLabel" destination="vsN-le-j9G" id="3ym-FJ-gpp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="val-nq-e26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -503,7 +375,6 @@
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
-        <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logo" width="299" height="299"/>
         <image name="person.crop.circle.badge.xmark" catalog="system" width="128" height="101"/>
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>

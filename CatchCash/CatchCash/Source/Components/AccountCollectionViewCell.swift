@@ -56,7 +56,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
     private var id = ""
     private var defaultAlias = ""
 
-    private let viewModel = AccountCollectionViewCellModel()
+    private let viewModel = AccountCollectionViewCellViewModel()
     private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
@@ -103,7 +103,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
                 return (self.id, text)
             }
 
-        let input = AccountCollectionViewCellModel.Input(
+        let input = AccountCollectionViewCellViewModel.Input(
             info: editingButton.rx.tap
                 .filter { [weak self] in self?.isEditingMode == true }
                 .withLatestFrom(info)

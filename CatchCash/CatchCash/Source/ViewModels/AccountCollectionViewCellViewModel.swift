@@ -1,5 +1,5 @@
 //
-//  AccountCollectionViewModel.swift
+//  AccountCollectionViewCellViewModel.swift
 //  CatchCash
 //
 //  Created by DaEun Kim on 2020/07/14.
@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-final class AccountCollectionViewCellModel: ViewModelType {
+final class AccountCollectionViewCellViewModel: ViewModelType {
     struct Input {
         let info: Driver<(id: String, String)>
     }

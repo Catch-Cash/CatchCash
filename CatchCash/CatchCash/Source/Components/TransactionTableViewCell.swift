@@ -38,7 +38,7 @@ final class TransactionTableViewCell: UITableViewCell {
 
     private var defaultTransaction: Transaction!
     private let disposeBag = DisposeBag()
-    private let viewModel = TransactionTableViewCellModel()
+    private let viewModel = TransactionTableViewCellViewModel()
     private let currentLabel = BehaviorRelay<Label>(value: .none)
 
     override func awakeFromNib() {
@@ -109,7 +109,7 @@ final class TransactionTableViewCell: UITableViewCell {
                                description: description, account: nil, date: nil, price: nil)
         }
 
-        let input = TransactionTableViewCellModel.Input(
+        let input = TransactionTableViewCellViewModel.Input(
             info: editingButton.rx.tap
                 .do(afterNext: { [weak self] _ in self?.isEditingMode.toggle() })
                 .filter { [weak self] _ in self?.isEditingMode == true }

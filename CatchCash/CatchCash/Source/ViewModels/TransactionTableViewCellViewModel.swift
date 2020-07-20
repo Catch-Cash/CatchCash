@@ -1,5 +1,5 @@
 //
-//  TransactionTableViewCellModel.swift
+//  TransactionTableViewCellViewModel.swift
 //  CatchCash
 //
 //  Created by DaEun Kim on 2020/07/16.
@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-final class TransactionTableViewCellModel: ViewModelType {
+final class TransactionTableViewCellViewModel: ViewModelType {
     struct Input {
         let info: Driver<Transaction>
     }

@@ -108,7 +108,7 @@ extension API {
             return transaction.dictionary
 
         case .updateGoal(let category, let goal):
-            return ["category": category.rawValue, "goal_amount": goal]
+            return ["category": category.string, "goal_amount": goal]
 
         default:
             return nil

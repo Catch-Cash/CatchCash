@@ -8,8 +8,8 @@
 
 import UIKit
 
-enum UsageCategory: String {
-    case income
+enum UsageCategory: Int {
+    case income = 0
     case expense
     case saving
 }
@@ -21,5 +21,21 @@ extension UsageCategory {
         case .expense: return "지출"
         case .saving: return "저축"
         }
+    }
+
+    var string: String {
+        return String(describing: self)
+    }
+
+    var color: UIColor {
+        switch self {
+        case .income: return Color.income
+        case .expense: return Color.expense
+        case .saving: return Color.saving
+        }
+    }
+
+    var gradient: CAGradientLayer {
+        return Gradient.make(self)
     }
 }
