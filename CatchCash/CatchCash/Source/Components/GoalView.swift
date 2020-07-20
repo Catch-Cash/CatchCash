@@ -56,8 +56,7 @@ final class GoalView: UIView {
             editingButton.isSelected = isEditingMode
 
             if isEditingMode {
-                (self.window?.rootViewController as? UITabBarController)?.viewControllers?
-                    .first?.showToast(Message.goal)
+                (self.window?.rootViewController as? UITabBarController)?.viewControllers?[2].showToast(Message.goal)
             }
         }
     }

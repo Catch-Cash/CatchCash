@@ -254,9 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				BF589F0324B4411300CFDA7C /* AccountCollectionViewCell.swift */,
+				BF589F1324B466CB00CFDA7C /* CircleChartView.swift */,
 				BF589F1124B4510000CFDA7C /* GoalView.swift */,
 				BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */,
-				BF589F1324B466CB00CFDA7C /* CircleChartView.swift */,
 				BF38BFD624B6AB1F001C8C4B /* SimpleTransactionView.swift */,
 				BF38BFE224B7F754001C8C4B /* ToastView.swift */,
 				BF589F0824B445CE00CFDA7C /* TransactionTableViewCell.swift */,
