@@ -66,6 +66,10 @@ final class GoalViewController: UIViewController {
     @objc private func openGoalView(_ recognizer: UITapGestureRecognizer) {
         guard let view = recognizer.view as? GoalView else { return }
         if selectedCategory == view.category { return }
+        if view.isEditingMode {
+            self.showToast("수정 중에는 닫을 수 없습니다")
+            return
+        }
         selectedCategory = view.category
     }
 }

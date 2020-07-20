@@ -48,6 +48,7 @@
 		BF7D85C024C1B3AF00E7DF10 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85BF24C1B3AF00E7DF10 /* GoalViewController.swift */; };
 		BF7D85C224C1B97100E7DF10 /* GoalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D85C124C1B97100E7DF10 /* GoalView.xib */; };
 		BF7D85CA24C43C8700E7DF10 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85C924C43C8700E7DF10 /* GoalViewModel.swift */; };
+		BF7D85CC24C51C3800E7DF10 /* GoalViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85CB24C51C3700E7DF10 /* GoalViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		BF7D85BF24C1B3AF00E7DF10 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		BF7D85C124C1B97100E7DF10 /* GoalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalView.xib; sourceTree = "<group>"; };
 		BF7D85C924C43C8700E7DF10 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		BF7D85CB24C51C3700E7DF10 /* GoalViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */,
 				BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellViewModel.swift */,
 				BF7D85C924C43C8700E7DF10 /* GoalViewModel.swift */,
+				BF7D85CB24C51C3700E7DF10 /* GoalViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				BF589F1424B466CB00CFDA7C /* CircleChartView.swift in Sources */,
 				BF38BFA324B58D91001C8C4B /* Transaction.swift in Sources */,
 				BF38BFED24BD333F001C8C4B /* TransactionViewController.swift in Sources */,
+				BF7D85CC24C51C3800E7DF10 /* GoalViewViewModel.swift in Sources */,
 				BF7D85BE24C1468700E7DF10 /* Label.swift in Sources */,
 				BF589F1924B46A7900CFDA7C /* Color.swift in Sources */,
 				BF38BFA024B58686001C8C4B /* TokenManager.swift in Sources */,

@@ -8,11 +8,14 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 final class GoalView: UIView {
 
     // MARK: UI Properties when isOpen
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var editingButton: UIButton!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalPriceTextField: UITextField!
     @IBOutlet weak var currentLabel: UILabel!
@@ -32,7 +35,7 @@ final class GoalView: UIView {
             heightConstraint.isActive = !isOpened
 
             titleLabel.isHidden = !isOpened
-            editButton.isHidden = !isOpened
+            editingButton.isHidden = !isOpened
             goalLabel.isHidden = !isOpened
             goalPriceTextField.isHidden = !isOpened
             currentLabel.isHidden = !isOpened
@@ -49,6 +52,9 @@ final class GoalView: UIView {
     }
     var isEditingMode = false {
         didSet {
+            goalPriceTextField.isEnabled = isEditingMode
+            editingButton.isSelected = isEditingMode
+
             if isEditingMode {
                 (self.window?.rootViewController as? UITabBarController)?.viewControllers?
                     .first?.showToast(Message.goal)
@@ -59,9 +65,12 @@ final class GoalView: UIView {
     private var gradientLayer: CAGradientLayer? {
         return view.layer.sublayers?.first as? CAGradientLayer
     }
-
+    private var defaultGoal: Goal?
     private var view = UIView()
+
     private let chartView = CircleChartView()
+    private let disposeBag = DisposeBag()
+    private let viewModel = GoalViewViewModel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -85,6 +94,10 @@ final class GoalView: UIView {
         self.addSubview(view)
         chartView.frame = circleChartContainerView.bounds
         circleChartContainerView.addSubview(chartView)
+
+        goalPriceTextField.delegate = self
+        bindViewModel()
+        setupToolBar()
     }
 
     func setup(_ category: UsageCategory) {
@@ -103,6 +116,7 @@ final class GoalView: UIView {
     }
 
     func setup(_ goal: Goal) {
+        self.defaultGoal = goal
         goalPriceTextField.text = "\(goal.goal) 원"
         currentPriceLabel.text = "\(goal.current) 원"
         achievementRateLabel.text = "달성률 \(goal.achievementRate)%"
@@ -110,8 +124,50 @@ final class GoalView: UIView {
         achievementRateInContainerLabel.text = "\(goal.achievementRate)%"
         chartView.setNeedsDisplay()
     }
+
+    private func bindViewModel() {
+        let input = GoalViewViewModel.Input(
+            updateGoals: editingButton.rx.tap
+                .do(afterNext: { [weak self] _ in self?.isEditingMode.toggle() })
+                .filter { [weak self] _ in self?.isEditingMode == true }
+                .withLatestFrom(goalPriceTextField.rx.text.orEmpty)
+                { [weak self] _, text in (self?.category ?? .income, Int(text) ?? 0) }
+                .asDriver(onErrorJustReturn: (.income, 0))
+        )
+        let output = viewModel.transform(input: input)
+
+        output.goal.compactMap { $0 }
+            .drive(onNext: { [weak self] goal in
+                self?.defaultGoal = goal
+                self?.setup(goal)
+            })
+            .disposed(by: disposeBag)
+
+        output.goal.filter { $0 == nil }
+            .drive(onNext: { [weak self] _ in
+                self?.goalPriceTextField.text = "\(self?.defaultGoal?.goal ?? 0) 원"
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func setupToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let barButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissKeyboard))
+        toolBar.items = [barButton]
+        toolBar.tintColor = #colorLiteral(red: 1, green: 0.5531694889, blue: 0.3933998346, alpha: 1)
+
+        goalPriceTextField.inputAccessoryView = toolBar
+    }
+
+    @objc private func dismissKeyboard() {
+        goalPriceTextField.resignFirstResponder()
+    }
 }
 
-extension GoalView {
-    
+extension GoalView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

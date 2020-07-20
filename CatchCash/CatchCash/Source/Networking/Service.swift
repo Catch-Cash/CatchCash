@@ -32,7 +32,7 @@ protocol APIProvider {
     func fetchTransactions(_ id: String?, page: Int) -> Observable<NetworkingResult<TransactionResponse>>
     func updateTransaction(_ transaction: Transaction) -> Observable<NetworkingResult<Bool>>
     func fetchGoals() -> Observable<NetworkingResult<GoalResponse>>
-    func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Bool>>
+    func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Goal>>
 }
 
 final class Service: APIProvider {
@@ -243,15 +243,17 @@ final class Service: APIProvider {
         .retry()
     }
 
-    func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Bool>> {
+    func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Goal>> {
         return requestData(.updateGoal(category, goal: goal))
-            .map { response, data -> NetworkingResult<Bool> in
+            .map { [weak self] response, data -> NetworkingResult<Goal> in
                 switch response.statusCode {
-                case 200: return .noContent
+                case 200:
+                    guard let goal = try? self?.decoder.decode(Goal.self, from: data) else { return .fail }
+                    return .success(goal)
                 default: return .fail
                 }
         }
-        .catchError { [weak self] err -> Observable<NetworkingResult<Bool>> in
+        .catchError { [weak self] err -> Observable<NetworkingResult<Goal>> in
             guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
             if error == .tokenIsExpired {
                 return self.renewalToken()

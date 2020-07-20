@@ -13,7 +13,7 @@
                 <outlet property="circleChartContainerView" destination="6e0-fJ-OKV" id="JFc-7Z-bRn"/>
                 <outlet property="currentLabel" destination="ofe-qJ-JPn" id="yiB-7c-fK2"/>
                 <outlet property="currentPriceLabel" destination="rle-Gs-t4O" id="vuS-7l-l33"/>
-                <outlet property="editButton" destination="vYC-zP-Q2y" id="ogs-b5-8i6"/>
+                <outlet property="editingButton" destination="vYC-zP-Q2y" id="Beb-UW-EX8"/>
                 <outlet property="goalLabel" destination="zyl-sE-fkq" id="hic-Q1-CPe"/>
                 <outlet property="goalPriceTextField" destination="MgE-ZI-ux3" id="3g7-te-gEF"/>
                 <outlet property="subTitleLabel" destination="baj-pw-EGo" id="SWW-4I-Nw8"/>
@@ -35,6 +35,7 @@
                     <rect key="frame" x="378" y="16" width="20" height="22"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="ellipsis.circle.fill" catalog="system"/>
+                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정한 목표 수치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyl-sE-fkq">
                     <rect key="frame" x="16" y="59" width="105.5" height="19.5"/>
@@ -116,6 +117,7 @@
         </view>
     </objects>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="ellipsis.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
