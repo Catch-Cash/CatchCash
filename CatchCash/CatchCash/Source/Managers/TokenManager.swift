@@ -11,17 +11,17 @@ import Foundation
 struct TokenManager {
     private static let ud = UserDefaults.standard
 
-    static var accessToken: String {
+    static var accessToken: String? {
         get {
-            return ud.string(forKey: "accessToken") ?? ""
+            return ud.string(forKey: "accessToken")
         }
         set {
             ud.set(newValue, forKey: "accessToken")
         }
     }
-    static var refreshToken: String {
+    static var refreshToken: String? {
         get {
-            return ud.string(forKey: "refreshToken") ?? ""
+            return ud.string(forKey: "refreshToken")
         }
         set {
             ud.set(newValue, forKey: "refreshToken")

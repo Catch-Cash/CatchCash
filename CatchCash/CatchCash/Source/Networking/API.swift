@@ -25,13 +25,13 @@ enum API {
 
 extension API {
     var baseURL: String {
-      return ""
+      return "http://10.156.145.162:1212"
     }
 
     var path: String {
         switch self {
         case .login:
-            return "/login"
+            return "/autorize"
 
         case .logout:
             return "/logout"
@@ -85,7 +85,8 @@ extension API {
              .updateTransaction,
              .goal,
              .updateGoal:
-            return ["Authorization": TokenManager.accessToken]
+            guard let token = TokenManager.accessToken else { return nil }
+            return ["Authorization": token]
 
         default:
             return nil

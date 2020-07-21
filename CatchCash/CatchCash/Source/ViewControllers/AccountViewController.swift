@@ -40,6 +40,8 @@ final class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkLogin()
+
         collectionView.register(UINib(nibName: Identifier.accountCell,
                                       bundle: nil),
                                 forCellWithReuseIdentifier: Identifier.accountCell)
@@ -63,6 +65,12 @@ final class AccountViewController: UIViewController {
         .disposed(by: disposeBag)
 
         bindViewModel()
+    }
+
+    private func checkLogin() {
+        if TokenManager.accessToken != nil { return }
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: Identifier.loginVC) else { return }
+        self.navigationController?.setViewControllers([vc], animated: false)
     }
 
     private func bindViewModel() {

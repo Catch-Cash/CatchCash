@@ -82,6 +82,9 @@ final class AccountCollectionViewCell: UICollectionViewCell {
         aliasLabel.text = account.alias
         let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView } 
         for i in 0..<account.transactions.count {
+            if views.count <= i {
+                stackView.addArrangedSubview(SimpleTransactionView())
+            }
             views[i].setup(account.transactions[i], color: layer.colors?.first)
         }
         for view in views {

@@ -22,7 +22,7 @@ private func requestData(_ api: API, encoding: ParameterEncoding = URLEncoding.d
 }
 
 protocol APIProvider {
-    func login()  -> Observable<NetworkingResult<Bool>>
+    func login()  -> Observable<NetworkingResult<String>>
     func logout() -> Observable<NetworkingResult<Bool>>
     func deleteUser() -> Observable<NetworkingResult<Bool>>
     func renewalToken() -> Observable<NetworkingResult<Bool>>
@@ -35,27 +35,27 @@ protocol APIProvider {
     func updateGoal(_ category: UsageCategory, goal: Int) -> Observable<NetworkingResult<Goal>>
 }
 
+struct URLResponse: Decodable {
+    let url: String
+}
+
 final class Service: APIProvider {
     static let shared = Service()
     private init() { }
 
     private let decoder = JSONDecoder()
 
-    func login() -> Observable<NetworkingResult<Bool>> {
-        return requestData(.login)
-            .map { [weak self] response, data -> NetworkingResult<Bool> in
+    func login() -> Observable<NetworkingResult<String>> {
+        return requestData(.login).debug()
+            .map { [weak self] response, data -> NetworkingResult<String> in
                 switch response.statusCode {
                 case 200:
-                    guard let tokens = try? self?.decoder.decode(TokenResponse.self, from: data)
-                        else { return .fail }
-                    TokenManager.accessToken = tokens.accessToken
-                    TokenManager.refreshToken = tokens.refreshToken
-                    return .noContent
+                    guard let url = try? self?.decoder.decode(URLResponse.self, from: data) else { return .fail }
+                    return .success(url.url)
                 default:
                     return .fail
                 }
         }
-        .retry(2)
     }
 
     func logout() -> Observable<NetworkingResult<Bool>> {

@@ -27,6 +27,7 @@ struct Identifier {
     
     static let loginVC = "LoginViewController"
     static let labelVC = "LabelPickerViewController"
+    static let tabBarController = "TabBarController"
 }
 
 private let dateFormatter = DateFormatter()

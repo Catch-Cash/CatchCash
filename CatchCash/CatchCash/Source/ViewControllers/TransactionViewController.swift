@@ -73,8 +73,7 @@ final class TransactionViewController: UIViewController {
                 self?.filterTableViewHeightConstraint.constant = CGFloat(34 + (accounts.count * 20))
             })
             .asDriver(onErrorJustReturn: [])
-            .drive(filterTableView.rx.items(cellIdentifier: Identifier.filterCell, cellType: FilterTableViewCell.self))
-            { $2.setup($1) }
+            .drive(filterTableView.rx.items(cellIdentifier: Identifier.filterCell, cellType: FilterTableViewCell.self)) { $2.setup($1) }
             .disposed(by: disposeBag)
     }
 
