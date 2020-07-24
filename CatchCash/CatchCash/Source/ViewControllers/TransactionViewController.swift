@@ -61,20 +61,6 @@ final class TransactionViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        AccountManager.accounts = [.init(id: "0", alias: "카카오뱅크"), .init(id: "9", alias: "신한은행")]
-
-        Observable.just(AccountManager.accounts)
-            .compactMap { accounts in
-                guard let accounts = accounts else { return nil }
-                return [SimpleAccount(id: "", alias: "전체")] + accounts
-            }
-            .do(onNext: { [weak self] accounts in
-                self?.filterTableViewHeightConstraint.constant = CGFloat(34 + (accounts.count * 20))
-            })
-            .asDriver(onErrorJustReturn: [])
-            .drive(filterTableView.rx.items(cellIdentifier: Identifier.filterCell, cellType: FilterTableViewCell.self)) { $2.setup($1) }
-            .disposed(by: disposeBag)
     }
 
     private func setupTableView() {
@@ -86,11 +72,11 @@ final class TransactionViewController: UIViewController {
         filterTableView.rx.itemSelected.debug("😭")
             .bind { [weak self] indexPath in
                 indexPath.row == 0
-                ? self?.fetchTransactions.accept(nil)
-                : self?.fetchTransactions.accept(AccountManager.accounts?[indexPath.row-1])
+                    ? self?.fetchTransactions.accept(nil)
+                    : self?.fetchTransactions.accept(AccountManager.accounts?[indexPath.row-1])
                 self?.toggleFilterTableView()
-            }
-            .disposed(by: disposeBag)
+        }
+        .disposed(by: disposeBag)
 
         filterTableView.layer.cornerRadius = 8
         filterTableView.layer.shadowColor = UIColor.black.cgColor
@@ -120,6 +106,18 @@ final class TransactionViewController: UIViewController {
 
         filterTableView.sectionHeaderHeight = 26
         filterTableView.tableHeaderView = headerView
+
+        Observable.just(AccountManager.accounts)
+            .compactMap { accounts in
+                guard let accounts = accounts else { return nil }
+                return [SimpleAccount(id: "", alias: "전체")] + accounts
+            }
+            .do(onNext: { [weak self] accounts in
+                self?.filterTableViewHeightConstraint.constant = CGFloat(34 + (accounts.count * 20))
+            })
+            .asDriver(onErrorJustReturn: [])
+            .drive(filterTableView.rx.items(cellIdentifier: Identifier.filterCell, cellType: FilterTableViewCell.self)) { $2.setup($1) }
+            .disposed(by: disposeBag)
     }
 
     private func bindViewModel() {
