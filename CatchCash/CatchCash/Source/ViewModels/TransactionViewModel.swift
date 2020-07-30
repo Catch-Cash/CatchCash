@@ -82,7 +82,7 @@ final class TransactionViewModel: ViewModelType {
                     result[date]?.append(transaction)
                 }
                 return result.compactMap { TransactionSectionModel(model: $0.key, items: $0.value) }
-                    .sorted { $0.model < $1.model }
+                    .sorted { $0.model > $1.model }
         }
 
         return .init(transactions: transactions.asDriver(onErrorJustReturn: []),

@@ -25,7 +25,7 @@ enum API {
 
 extension API {
     var baseURL: String {
-      return "http://192.168.137.229:1212"
+      return "http://3.34.188.92:1212"
     }
 
     var path: String {
