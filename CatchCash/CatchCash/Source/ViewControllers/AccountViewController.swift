@@ -29,6 +29,7 @@ final class AccountViewController: UIViewController {
             collectionViewFlowLayout.horizontalAlignment = .justified
         }
     }
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     private let viewModel = AccountViewModel()
     private let disposeBag = DisposeBag()
@@ -61,8 +62,8 @@ final class AccountViewController: UIViewController {
                                       style: .destructive,
                                       handler: { _ in self.deleteUserTaps.accept(()) }))
                 self.present(alert, animated: true, completion: nil)
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
 
         bindViewModel()
     }
@@ -91,14 +92,18 @@ final class AccountViewController: UIViewController {
 
         output.presentLogin
             .emit(onNext: { [weak self] _ in
-                guard let vc = self?.storyboard?
-                    .instantiateViewController(withIdentifier: Identifier.loginVC) else { return }
-                self?.present(vc, animated: false, completion: nil)
+                TokenManager.clear()
+                AccountManager.clear()
+                self?.checkLogin()
             })
             .disposed(by: disposeBag)
 
         output.error
             .emit(onNext: { [weak self] in self?.showToast($0) })
+            .disposed(by: disposeBag)
+
+        output.isLoading
+            .emit(to: indicator.rx.isAnimating)
             .disposed(by: disposeBag)
     }
 }

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.2.1)
+  - Alamofire (5.2.2)
   - AlignedCollectionViewFlowLayout (1.1.2)
   - Differentiator (4.0.1)
   - RxAlamofire (5.6.0):
@@ -38,7 +38,7 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   RxAlamofire: f34ddbab56fa2a36f99737f4d4ecc22288a1384f

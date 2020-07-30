@@ -94,6 +94,13 @@ final class GoalView: UIView {
         chartView.frame = circleChartContainerView.bounds
         circleChartContainerView.addSubview(chartView)
 
+        editingButton.rx.tap
+            .bind { [weak self] _ in
+                if self?.isEditingMode == true { self?.dismissKeyboard() }
+                self?.isEditingMode.toggle()
+            }
+            .disposed(by: disposeBag)
+
         goalPriceTextField.delegate = self
         bindViewModel()
         setupToolBar()
@@ -127,8 +134,7 @@ final class GoalView: UIView {
     private func bindViewModel() {
         let input = GoalViewViewModel.Input(
             updateGoals: editingButton.rx.tap
-                .do(afterNext: { [weak self] _ in self?.isEditingMode.toggle() })
-                .filter { [weak self] _ in self?.isEditingMode == true }
+                .filter { [weak self] _ in self?.isEditingMode == false }
                 .withLatestFrom(goalPriceTextField.rx.text.orEmpty)
                 { [weak self] _, text in (self?.category ?? .income, Int(text) ?? 0) }
                 .asDriver(onErrorJustReturn: (.income, 0))

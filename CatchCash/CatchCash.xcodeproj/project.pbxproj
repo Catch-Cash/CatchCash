@@ -41,6 +41,7 @@
 		BF5ABFD724BD430B00C2C82B /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */; };
 		BF5ABFD924BDCBA500C2C82B /* LabelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFD824BDCBA500C2C82B /* LabelPickerViewController.swift */; };
 		BF5ABFDB24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */; };
+		BF5BC17524D15C380090A2BA /* UIActivityIndicatorView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BC17424D15C380090A2BA /* UIActivityIndicatorView+Rx.swift */; };
 		BF7D85B524C015D600E7DF10 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */; };
 		BF7D85B724C01D7A00E7DF10 /* TransactionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellViewModel.swift */; };
 		BF7D85BE24C1468700E7DF10 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38BFD824B6BA7D001C8C4B /* Label.swift */; };
@@ -92,6 +93,7 @@
 		BF5ABFD624BD430B00C2C82B /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		BF5ABFD824BDCBA500C2C82B /* LabelPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerViewController.swift; sourceTree = "<group>"; };
 		BF5ABFDA24BFEDC000C2C82B /* LabelPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF5BC17424D15C380090A2BA /* UIActivityIndicatorView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Rx.swift"; sourceTree = "<group>"; };
 		BF7D85B424C015D600E7DF10 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		BF7D85B624C01D7A00E7DF10 /* TransactionTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		BF7D85BF24C1B3AF00E7DF10 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		BF38BFDF24B7F695001C8C4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF5BC17424D15C380090A2BA /* UIActivityIndicatorView+Rx.swift */,
 				BF38BFE024B7F6B4001C8C4B /* UIViewController.swift */,
 			);
 			path = Extensions;
@@ -452,6 +455,7 @@
 				BF38BFCD24B69599001C8C4B /* NetworkingResults.swift in Sources */,
 				BF38BFD724B6AB1F001C8C4B /* SimpleTransactionView.swift in Sources */,
 				BF589F1B24B48DE300CFDA7C /* Gradient.swift in Sources */,
+				BF5BC17524D15C380090A2BA /* UIActivityIndicatorView+Rx.swift in Sources */,
 				BF38BFCF24B69B99001C8C4B /* AccountManager.swift in Sources */,
 				BF38BFA924B5A2C1001C8C4B /* Goal.swift in Sources */,
 				BF7D85C024C1B3AF00E7DF10 /* GoalViewController.swift in Sources */,

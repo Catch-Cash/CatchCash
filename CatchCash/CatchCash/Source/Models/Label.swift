@@ -22,7 +22,7 @@ enum Label: Int, Equatable {
     case none
 
     init(_ rawValue: Int) {
-        if rawValue > 10 { self = .food }
+        if rawValue > 10 { self = .none }
         self.init(rawValue: rawValue)!
     }
 }

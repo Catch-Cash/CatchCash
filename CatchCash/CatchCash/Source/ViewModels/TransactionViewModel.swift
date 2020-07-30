@@ -18,6 +18,7 @@ final class TransactionViewModel: ViewModelType {
     struct Output {
         let transactions: Driver<[TransactionSectionModel]>
         let error: Signal<String>
+        let isLoading: Signal<Bool>
     }
 
     private let isNextPageExists = BehaviorRelay<Bool>(value: false)
@@ -26,41 +27,47 @@ final class TransactionViewModel: ViewModelType {
 
     func transform(input: Input) -> Output {
         let error = PublishRelay<String>()
+        let isLoading = PublishRelay<Bool>()
+
         let fetchTransactions = input.fetchTransactions.asObservable()
+            .do(onNext: { _ in isLoading.accept(true) })
             .flatMap { Service.shared.fetchTransactions($0?.id) }
             .map { [weak self] result -> [Transaction] in
+                defer { isLoading.accept(false) }
                 switch result {
                 case .success(let response):
-                    self?.updatePage(response.isNextPageExists == "Y")
+                    self?.updatePage(response.isNextPageExists == "y")
                     return response.transactions
                 case .noContent:
-                    break
+                    error.accept(ErrorMessage.noContent)
                 default:
                     error.accept(ErrorMessage.plain)
                 }
-                return [.init(id: 0, label: 1, title: "브로콜리 샐러드", description: "오오", account: "카카오뱅크", date: "20200918", price: 10000), .init(id: 0, label: 4, title: "이이", description: "오오", account: "농협", date: "20200918", price: 10000), .init(id: 0, label: 9, title: "이이", description: "오오", account: "블루베리스무디", date: "20201018", price: 10000)]
+                return []
         }
 
         let loadTransactions = input.loadTransactions.asObservable()
             .withLatestFrom(isNextPageExists)
             .filter { $0 }
+            .do(onNext: { _ in isLoading.accept(true) })
             .withLatestFrom(input.fetchTransactions.asObservable())
             .flatMap { [weak self] account -> Observable<NetworkingResult<TransactionResponse>> in
                 guard let self = self else { return .never() }
                 return Service.shared.fetchTransactions(account?.id, page: self.page)
-        }
-        .withLatestFrom(fetchTransactions) { [weak self] result, old -> [Transaction] in
-            switch result {
-            case .success(let response):
-                self?.updatePage(response.isNextPageExists == "Y")
-                return old + response.transactions
-            case .noContent:
-                break
-            default:
-                error.accept(ErrorMessage.plain)
             }
-            return []
-        }
+            .withLatestFrom(fetchTransactions) { [weak self] result, old -> [Transaction] in
+                defer { isLoading.accept(false) }
+                switch result {
+                case .success(let response):
+                    self?.updatePage(response.isNextPageExists == "y")
+                    return old + response.transactions
+                case .noContent:
+                    error.accept(ErrorMessage.noContent)
+                default:
+                    error.accept(ErrorMessage.plain)
+                }
+                return []
+            }
 
         let transactions = Observable.concat([fetchTransactions, loadTransactions])
             .map { transactions -> [TransactionSectionModel] in
@@ -75,10 +82,12 @@ final class TransactionViewModel: ViewModelType {
                     result[date]?.append(transaction)
                 }
                 return result.compactMap { TransactionSectionModel(model: $0.key, items: $0.value) }
+                    .sorted { $0.model < $1.model }
         }
 
         return .init(transactions: transactions.asDriver(onErrorJustReturn: []),
-                     error: error.asSignal())
+                     error: error.asSignal(),
+                     isLoading: isLoading.asSignal())
     }
 
     private func updatePage(_ isNextPageExists: Bool) {

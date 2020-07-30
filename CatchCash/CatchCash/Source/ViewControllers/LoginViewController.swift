@@ -42,15 +42,15 @@ final class LoginViewController: UIViewController {
                 default:
                     self.showToast("오류가 발생했습니다")
                 }
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 
 }
 
 extension LoginViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if webView.url?.absoluteString.contains("http://10.156.145.162:1212") == false { return }
+        if webView.url?.absoluteString.contains(API.account.baseURL) == false { return }
 
         webView.evaluateJavaScript("document.body.innerHTML", completionHandler: { html, error in
             let stringData = (html as? String)?.components(separatedBy: ["<", ">"])

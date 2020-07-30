@@ -18,7 +18,7 @@ final class SimpleTransactionView: UIView {
     func setup(_ transaction: SimpleTransaction, color: Any?) {
         guard let color = color else { return }
         self.layer.cornerRadius = 6
-        labelLabel.text = Label(transaction.label).title
+        labelLabel.text = Label(rawValue: transaction.label)?.title
         priceLabel.text = "\(transaction.price) 원"
         labelLabel.textColor = UIColor(cgColor: color as! CGColor)
         priceLabel.textColor = UIColor(cgColor: color as! CGColor)

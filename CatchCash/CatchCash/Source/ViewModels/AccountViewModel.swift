@@ -20,6 +20,7 @@ final class AccountViewModel: ViewModelType {
         let accounts: Driver<[(Account, CAGradientLayer)]>
         let presentLogin: Signal<Void>
         let error: Signal<String>
+        let isLoading: Signal<Bool>
     }
 
     private let disposeBag = DisposeBag()
@@ -27,37 +28,24 @@ final class AccountViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let presentLogin = PublishRelay<Void>()
         let error = PublishRelay<String>()
+        let isLoading = PublishRelay<Bool>()
         let fetchAccountsResult = input.fetchAccounts.asObservable()
+            .do(onNext: { _ in isLoading.accept(true) })
             .flatMap { Service.shared.fetchAccounts() }
 
         let accounts = fetchAccountsResult.map { result -> [(Account, CAGradientLayer)] in
+            defer { isLoading.accept(false) }
             switch result {
             case .success(let accounts):
                 var result = [(Account, CAGradientLayer)]()
                 for (i, account) in accounts.enumerated() {
-                    result.append((account, Gradient.make(i)))
+                    result.append((account, Gradient.make(i%8)))
                 }
                 return result
             case .noContent:
-                break
+                error.accept(ErrorMessage.noContent)
             default:
-                return [(Account(id: "0",
-                                 bank: "카카오뱅크",
-                                 alias: "테스트계좌",
-                                 banlance: "30000",
-                                 transactions: [.init(price: 2000, label: 3)]),
-                         Gradient.make(1)), (Account(id: "1",
-                                 bank: "농협",
-                                 alias: "테스트어쩌구",
-                                 banlance: "30000",
-                                 transactions: [.init(price: 3000, label: 10), .init(price: 2000, label: 3)]),
-                         Gradient.make(3)), (Account(id: "1",
-                                 bank: "농협",
-                                 alias: "테스트어쩌구",
-                                 banlance: "30000",
-                                 transactions: [.init(price: 3000, label: 10), .init(price: 2000, label: 3)]),
-                         Gradient.make(3))]
-                //                error.accept(ErrorMessage.plain)
+                error.accept(ErrorMessage.plain)
             }
             return []
         }
@@ -66,7 +54,7 @@ final class AccountViewModel: ViewModelType {
             .flatMap { Service.shared.logout() }
             .bind { result in
                 switch result {
-                case .success: presentLogin.accept(())
+                case .noContent: presentLogin.accept(())
                 default: error.accept(ErrorMessage.plain)
                 }
         }
@@ -76,7 +64,7 @@ final class AccountViewModel: ViewModelType {
             .flatMap { Service.shared.deleteUser() }
             .bind { result in
                 switch result {
-                case .success: presentLogin.accept(())
+                case .noContent: presentLogin.accept(())
                 default: error.accept(ErrorMessage.plain)
                 }
         }
@@ -84,6 +72,7 @@ final class AccountViewModel: ViewModelType {
 
         return .init(accounts: accounts.asDriver(onErrorJustReturn: []),
                      presentLogin: presentLogin.asSignal(),
-                     error: error.asSignal())
+                     error: error.asSignal(),
+                     isLoading: isLoading.asSignal())
     }
 }

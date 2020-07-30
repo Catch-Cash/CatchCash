@@ -28,11 +28,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="PbD-Sf-3DY">
                                 <rect key="frame" x="16" y="138" width="382" height="651"/>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ycq-TY-VCE">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="PbD-Sf-3DY" firstAttribute="leading" secondItem="nWP-ec-Pqz" secondAttribute="leading" constant="16" id="03j-N5-jL2"/>
                             <constraint firstItem="PbD-Sf-3DY" firstAttribute="top" secondItem="vsN-le-j9G" secondAttribute="bottom" constant="36" id="1oF-Iz-xhs"/>
+                            <constraint firstItem="ycq-TY-VCE" firstAttribute="centerX" secondItem="TfZ-hw-OXb" secondAttribute="centerX" id="2P6-2p-04y"/>
+                            <constraint firstItem="ycq-TY-VCE" firstAttribute="centerY" secondItem="TfZ-hw-OXb" secondAttribute="centerY" id="IXd-DG-cos"/>
                             <constraint firstItem="vsN-le-j9G" firstAttribute="top" secondItem="nWP-ec-Pqz" secondAttribute="top" constant="29" id="Qqq-F0-52d"/>
                             <constraint firstItem="nWP-ec-Pqz" firstAttribute="bottom" secondItem="PbD-Sf-3DY" secondAttribute="bottom" constant="24" id="aSB-Dp-Edb"/>
                             <constraint firstItem="nWP-ec-Pqz" firstAttribute="trailing" secondItem="PbD-Sf-3DY" secondAttribute="trailing" constant="16" id="fRM-3o-ym6"/>
@@ -43,12 +48,13 @@
                     <tabBarItem key="tabBarItem" title="목표" image="chart.bar" catalog="system" selectedImage="chart.bar" id="lVE-M1-ACR"/>
                     <connections>
                         <outlet property="goalStackView" destination="PbD-Sf-3DY" id="EhE-XF-h6n"/>
+                        <outlet property="indicator" destination="ycq-TY-VCE" id="wPi-l5-GlV"/>
                         <outlet property="monthLabel" destination="vsN-le-j9G" id="3ym-FJ-gpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="val-nq-e26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="669"/>
+            <point key="canvasLocation" x="528.98550724637687" y="668.97321428571422"/>
         </scene>
         <!--거래 내역-->
         <scene sceneID="zZh-Km-i2e">
@@ -121,16 +127,21 @@
                                     <constraint firstAttribute="height" constant="18" id="zNm-Fr-vCo"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zxj-sj-sjt">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="32B-64-SUD" firstAttribute="trailing" secondItem="FXJ-Mv-l9N" secondAttribute="trailing" id="9u2-vk-noI"/>
                             <constraint firstItem="fNv-vu-czN" firstAttribute="centerY" secondItem="FXJ-Mv-l9N" secondAttribute="centerY" id="AAE-jH-rmM"/>
                             <constraint firstItem="MYK-Gi-Nup" firstAttribute="top" secondItem="NOU-EQ-fAX" secondAttribute="top" constant="29" id="Co7-7m-X0J"/>
+                            <constraint firstItem="zxj-sj-sjt" firstAttribute="centerX" secondItem="Hzv-h6-bOt" secondAttribute="centerX" id="FhT-gS-QwX"/>
                             <constraint firstItem="FXJ-Mv-l9N" firstAttribute="trailing" secondItem="fNv-vu-czN" secondAttribute="trailing" constant="8" id="LhK-S1-HfP"/>
                             <constraint firstItem="NOU-EQ-fAX" firstAttribute="trailing" secondItem="Vz4-20-95p" secondAttribute="trailing" constant="16" id="SED-tR-Hkd"/>
                             <constraint firstItem="Vz4-20-95p" firstAttribute="leading" secondItem="NOU-EQ-fAX" secondAttribute="leading" constant="16" id="T55-eA-zdm"/>
                             <constraint firstItem="32B-64-SUD" firstAttribute="leading" secondItem="FXJ-Mv-l9N" secondAttribute="leading" id="Z0j-gA-XHc"/>
+                            <constraint firstItem="zxj-sj-sjt" firstAttribute="centerY" secondItem="Hzv-h6-bOt" secondAttribute="centerY" id="cyJ-wb-ocH"/>
                             <constraint firstItem="FXJ-Mv-l9N" firstAttribute="top" secondItem="NOU-EQ-fAX" secondAttribute="top" constant="32" id="hQY-sk-BBZ"/>
                             <constraint firstItem="NOU-EQ-fAX" firstAttribute="trailing" secondItem="FXJ-Mv-l9N" secondAttribute="trailing" constant="24" id="jXy-7h-tIb"/>
                             <constraint firstItem="NOU-EQ-fAX" firstAttribute="bottom" secondItem="Vz4-20-95p" secondAttribute="bottom" id="nRh-VR-qHv"/>
@@ -145,6 +156,7 @@
                         <outlet property="filterButton" destination="FXJ-Mv-l9N" id="Q3B-cG-7SI"/>
                         <outlet property="filterTableView" destination="32B-64-SUD" id="i6a-eb-2Ui"/>
                         <outlet property="filterTableViewHeightConstraint" destination="6YU-Fb-rhh" id="1T2-f8-Uyh"/>
+                        <outlet property="indicator" destination="zxj-sj-sjt" id="CZQ-1x-udT"/>
                         <outlet property="transactionTableView" destination="Vz4-20-95p" id="CCE-YB-TwB"/>
                     </connections>
                 </viewController>
@@ -358,6 +370,9 @@
                                 <inset key="imageEdgeInsets" minX="3" minY="4" maxX="3" maxY="4"/>
                                 <state key="normal" image="arrow.clockwise" catalog="system"/>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uZg-8z-RLB">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -365,8 +380,10 @@
                             <constraint firstItem="7Jo-sN-dsD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="6vI-p9-rMJ"/>
                             <constraint firstItem="RuC-uW-1Rs" firstAttribute="trailing" secondItem="INf-PH-uh0" secondAttribute="trailing" id="81z-aI-IXA"/>
                             <constraint firstItem="INf-PH-uh0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="BIS-Au-dIJ"/>
+                            <constraint firstItem="uZg-8z-RLB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HM9-eC-LrV"/>
                             <constraint firstItem="hQB-9g-RPh" firstAttribute="top" secondItem="7Jo-sN-dsD" secondAttribute="bottom" constant="36" id="ITj-mb-8jQ"/>
                             <constraint firstItem="hQB-9g-RPh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Lpb-6O-aji"/>
+                            <constraint firstItem="uZg-8z-RLB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UAK-g8-xLF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iq0-7j-PS2" secondAttribute="trailing" constant="16" id="ZhR-Uw-tei"/>
                             <constraint firstItem="XW5-oV-GPY" firstAttribute="leading" secondItem="hQB-9g-RPh" secondAttribute="trailing" constant="12" id="bGf-M9-wXN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="INf-PH-uh0" secondAttribute="trailing" constant="24" id="gCq-9E-n6t"/>
@@ -384,6 +401,7 @@
                         <outlet property="accountManageButton" destination="INf-PH-uh0" id="08f-n0-shC"/>
                         <outlet property="collectionView" destination="Iq0-7j-PS2" id="VGh-hF-I4C"/>
                         <outlet property="collectionViewFlowLayout" destination="IcO-Zm-EGh" id="Q5O-R7-5c4"/>
+                        <outlet property="indicator" destination="uZg-8z-RLB" id="LVn-Pw-49q"/>
                         <outlet property="refreshButton" destination="RuC-uW-1Rs" id="61f-PF-IbD"/>
                     </connections>
                 </viewController>
@@ -394,7 +412,6 @@
         <!--Navigation Controller-->
         <scene sceneID="M4I-PM-tT5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rQi-1M-HdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tNp-im-gkf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c9D-Hv-TVa">
@@ -405,6 +422,7 @@
                         <segue destination="uck-Un-1OY" kind="relationship" relationship="rootViewController" id="iLY-4B-A2l"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQi-1M-HdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1206" y="-80"/>
         </scene>

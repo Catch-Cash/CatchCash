@@ -26,6 +26,7 @@ final class TransactionViewController: UIViewController {
     @IBOutlet weak var transactionTableView: UITableView!
     @IBOutlet weak var filterTableView: UITableView!
     @IBOutlet weak var filterTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     private let viewModel = TransactionViewModel()
     private let disposeBag = DisposeBag()
@@ -61,6 +62,7 @@ final class TransactionViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchTransactions.accept(nil)
     }
 
     private func setupTableView() {
@@ -131,6 +133,10 @@ final class TransactionViewController: UIViewController {
 
         output.error
             .emit(onNext: { [weak self] in self?.showToast($0) })
+            .disposed(by: disposeBag)
+
+        output.isLoading
+            .emit(to: indicator.rx.isAnimating)
             .disposed(by: disposeBag)
     }
 

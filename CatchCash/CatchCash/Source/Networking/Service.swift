@@ -12,13 +12,13 @@ import Alamofire
 import RxAlamofire
 import RxSwift
 
-private func requestData(_ api: API, encoding: ParameterEncoding = URLEncoding.default)
+private func requestData(_ api: API, encoding: ParameterEncoding = JSONEncoding.default)
     -> Observable<(HTTPURLResponse, Data)> {
         return requestData(api.method,
                            api.baseURL + api.path,
                            parameters: api.parameters,
-                           encoding: JSONEncoding.prettyPrinted,
-                           headers: api.headers)
+                           encoding: encoding,
+                           headers: api.headers).debug()
 }
 
 protocol APIProvider {
@@ -46,7 +46,7 @@ final class Service: APIProvider {
     private let decoder = JSONDecoder()
 
     func login() -> Observable<NetworkingResult<String>> {
-        return requestData(.login).debug()
+        return requestData(.login)
             .map { [weak self] response, data -> NetworkingResult<String> in
                 switch response.statusCode {
                 case 200:
@@ -66,19 +66,19 @@ final class Service: APIProvider {
                 case 403: throw NetworkingError.tokenIsExpired
                 default: return .fail
                 }
-        }
-        .catchError { [weak self] err -> Observable<NetworkingResult<Bool>> in
-            guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
-            if error == .tokenIsExpired {
-                return self.renewalToken()
-                    .map {
-                        if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
-                        return .fail
-                }
             }
-            return .just(.fail)
-        }
-        .retry()
+            .catchError { [weak self] err -> Observable<NetworkingResult<Bool>> in
+                guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
+                if error == .tokenIsExpired {
+                    return self.renewalToken()
+                        .map {
+                            if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
+                            return .fail
+                    }
+                }
+                return .just(.fail)
+            }
+            .retry()
     }
 
     func deleteUser() -> Observable<NetworkingResult<Bool>> {
@@ -124,27 +124,28 @@ final class Service: APIProvider {
         return requestData(.account)
             .map { [weak self] response, data -> NetworkingResult<[Account]> in
                 switch response.statusCode {
-                case 200:
+                case 200, 304:
                     guard let accountResponse = try? self?.decoder.decode(AccountResponse.self, from: data)
                         else { return .fail }
                     AccountManager.accounts = accountResponse.accounts.map { $0.toSimpleAccount() }
+                    if accountResponse.accounts.isEmpty { return .noContent }
                     return .success(accountResponse.accounts)
                 case 404: return .notFound
                 default: return .fail
                 }
-        }
-        .catchError { [weak self] err -> Observable<NetworkingResult<[Account]>> in
-            guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
-            if error == .tokenIsExpired {
-                return self.renewalToken()
-                    .map {
-                        if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
-                        return .fail
-                }
             }
-            return .just(.fail)
-        }
-        .retry()
+            .catchError { [weak self] err -> Observable<NetworkingResult<[Account]>> in
+                guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
+                if error == .tokenIsExpired {
+                    return self.renewalToken()
+                        .map {
+                            if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
+                            return .fail
+                    }
+                }
+                return .just(.fail)
+            }
+            .retry()
     }
 
     func updateAccount(_ id: String, alias: String) -> Observable<NetworkingResult<Bool>> {
@@ -155,19 +156,19 @@ final class Service: APIProvider {
                 case 404: return .notFound
                 default: return .fail
                 }
-        }
-        .catchError { [weak self] err -> Observable<NetworkingResult<Bool>> in
-            guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
-            if error == .tokenIsExpired {
-                return self.renewalToken()
-                    .map {
-                        if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
-                        return .fail
-                }
             }
-            return .just(.fail)
-        }
-        .retry()
+            .catchError { [weak self] err -> Observable<NetworkingResult<Bool>> in
+                guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
+                if error == .tokenIsExpired {
+                    return self.renewalToken()
+                        .map {
+                            if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
+                            return .fail
+                    }
+                }
+                return .just(.fail)
+            }
+            .retry()
     }
 
     func fetchTransactions(_ id: String?, page: Int = 1) -> Observable<NetworkingResult<TransactionResponse>> {
@@ -219,10 +220,10 @@ final class Service: APIProvider {
     }
 
     func fetchGoals() -> Observable<NetworkingResult<GoalResponse>> {
-        return requestData(.goal)
+        return requestData(.goal).debug()
             .map { [weak self] response, data -> NetworkingResult<GoalResponse> in
                 switch response.statusCode {
-                case 200:
+                case 200, 304:
                     guard let goalResponse = try? self?.decoder.decode(GoalResponse.self, from: data)
                         else { return .fail }
                     return .success(goalResponse)
@@ -247,24 +248,24 @@ final class Service: APIProvider {
         return requestData(.updateGoal(category, goal: goal))
             .map { [weak self] response, data -> NetworkingResult<Goal> in
                 switch response.statusCode {
-                case 200:
+                case 200, 304:
                     guard let goal = try? self?.decoder.decode(Goal.self, from: data) else { return .fail }
                     return .success(goal)
                 default: return .fail
                 }
-        }
-        .catchError { [weak self] err -> Observable<NetworkingResult<Goal>> in
-            guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
-            if error == .tokenIsExpired {
-                return self.renewalToken()
-                    .map {
-                        if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
-                        return .fail
-                }
             }
-            return .just(.fail)
-        }
-        .retry()
+            .catchError { [weak self] err -> Observable<NetworkingResult<Goal>> in
+                guard let error = err as? NetworkingError, let self = self else { return .just(.fail) }
+                if error == .tokenIsExpired {
+                    return self.renewalToken()
+                        .map {
+                            if $0 == .noContent { throw NetworkingError.tokenIsRenewaled }
+                            return .fail
+                    }
+                }
+                return .just(.fail)
+            }
+            .retry()
     }
 }
 

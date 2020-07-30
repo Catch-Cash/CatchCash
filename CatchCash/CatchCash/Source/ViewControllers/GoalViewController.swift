@@ -15,6 +15,7 @@ final class GoalViewController: UIViewController {
 
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var goalStackView: UIStackView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     private let goalViews: [GoalView] = [.init(), .init(), .init()]
     private let disposeBag = DisposeBag()
@@ -60,6 +61,14 @@ final class GoalViewController: UIViewController {
                 self?.goalViews[1].setup(response.expense)
                 self?.goalViews[2].setup(response.saving)
             })
+            .disposed(by: disposeBag)
+
+        output.isLoading
+            .emit(to: indicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+
+        output.isLoading
+            .emit(to: goalStackView.rx.isHidden)
             .disposed(by: disposeBag)
     }
 

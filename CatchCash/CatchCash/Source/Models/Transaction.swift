@@ -20,7 +20,7 @@ struct Transaction: Codable & Equatable {
     let price: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id = "transaction_id"
+        case id = "id"
         case label = "label"
         case title = "print_content"
         case description = "description"

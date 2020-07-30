@@ -47,6 +47,13 @@ final class TransactionTableViewCell: UITableViewCell {
         labelButton.layer.cornerRadius = labelButton.bounds.height / 2
         containerView.layer.cornerRadius = 8
         self.backgroundColor = nil
+
+        editingButton.rx.tap
+            .bind { [weak self] _ in
+                if self?.isEditingMode == true { self?.dismissKeyboard() }
+                self?.isEditingMode.toggle()
+            }
+            .disposed(by: disposeBag)
         
         labelButton.rx.tap
             .bind { [weak self] _ in self?.presentLabelPicker() }
@@ -60,6 +67,14 @@ final class TransactionTableViewCell: UITableViewCell {
 
         setupToolBar()
         bindViewModel()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        defaultTransaction = nil
+        isOpened = false
+        isEditingMode = false
+        currentLabel.accept(.none)
     }
 
     func setup(_ transaction: Transaction) {
@@ -111,9 +126,9 @@ final class TransactionTableViewCell: UITableViewCell {
 
         let input = TransactionTableViewCellViewModel.Input(
             info: editingButton.rx.tap
-                .do(afterNext: { [weak self] _ in self?.isEditingMode.toggle() })
-                .filter { [weak self] _ in self?.isEditingMode == true }
-                .withLatestFrom(info)
+                .filter { [weak self] _ in self?.isEditingMode == false }
+                .withLatestFrom(info).debug()
+                .compactMap { $0 }
                 .asDriver(onErrorJustReturn: nil)
                 .compactMap { $0 }
         )
@@ -121,6 +136,11 @@ final class TransactionTableViewCell: UITableViewCell {
 
         output.result.drive(onNext: { [weak self] result in
             guard let self = self else { return }
+
+            let label = Label(rawValue: result?.label ?? 0)
+            self.priceLabel.text = (label == .income ? "+" : "-") + "\(self.defaultTransaction.price ?? 0) 원"
+            self.priceLabel.textColor = label == .income ? Color.transactionIncome : Color.transactionExpense
+
             if let result = result {
                 self.defaultTransaction = result
                 return

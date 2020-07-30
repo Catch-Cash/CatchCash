@@ -24,7 +24,7 @@ struct Account: Decodable & Equatable {
         case id = "fintech_use_num"
         case bank = "bank_name"
         case alias = "account_alias"
-        case banlance = "banlance_amt"
+        case banlance = "balance_amt"
         case transactions = "transaction_list"
     }
 

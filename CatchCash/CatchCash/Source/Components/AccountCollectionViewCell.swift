@@ -80,7 +80,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
 
         bankLabel.text = account.bank
         aliasLabel.text = account.alias
-        let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView } 
+        let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView }
         for i in 0..<account.transactions.count {
             if views.count <= i {
                 stackView.addArrangedSubview(SimpleTransactionView())
@@ -108,7 +108,7 @@ final class AccountCollectionViewCell: UICollectionViewCell {
 
         let input = AccountCollectionViewCellViewModel.Input(
             info: editingButton.rx.tap
-                .filter { [weak self] in self?.isEditingMode == true }
+                .filter { [weak self] in self?.isEditingMode == false }
                 .withLatestFrom(info)
                 .asDriver(onErrorJustReturn: ("", ""))
         )

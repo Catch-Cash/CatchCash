@@ -21,7 +21,7 @@ final class TransactionTableViewCellViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         return .init(result: input.info.asObservable()
             .flatMap { Service.shared.updateTransaction($0) }
-            .flatMap { $0 == .noContent ? input.info.map { $0 } : .just(nil) }
+            .flatMap { $0 == .noContent ? input.info.map { $0 } : .just(nil) }.debug()
             .asDriver(onErrorJustReturn: nil))
     }
 }

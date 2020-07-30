@@ -16,21 +16,27 @@ final class GoalViewModel: ViewModelType {
 
     struct Output {
         let goals: Driver<GoalResponse?>
+        let isLoading: Signal<Bool>
     }
 
     private let disposeBag = DisposeBag()
 
     func transform(input: Input) -> Output {
-        return .init(goals: input.fetchGoals.asObservable()
-            .flatMap { Service.shared.fetchGoals() }
-            .map { result in
-                switch result {
-                case .success(let goals): return goals
-                default: return .init(income: .init(goal: 3000000, current: 200000, achievementRate: 66),
-                                      expense: .init(goal: 1000000, current: 500000, achievementRate: 50),
-                                      saving: .init(goal: 1000000, current: 300000, achievementRate: 33))
+        let isLoading = PublishRelay<Bool>()
+
+        return .init(
+            goals: input.fetchGoals.asObservable()
+                .do(onNext: { isLoading.accept(true) })
+                .flatMap { Service.shared.fetchGoals() }
+                .map { result in
+                    defer { isLoading.accept(false) }
+                    switch result {
+                    case .success(let goals): return goals
+                    default: return nil
+                    }
                 }
-            }.asDriver(onErrorJustReturn: nil)
+                .asDriver(onErrorJustReturn: nil),
+            isLoading: isLoading.asSignal()
         )
     }
 }
