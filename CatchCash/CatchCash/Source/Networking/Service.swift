@@ -18,7 +18,7 @@ private func requestData(_ api: API, encoding: ParameterEncoding = JSONEncoding.
                            api.baseURL + api.path,
                            parameters: api.parameters,
                            encoding: encoding,
-                           headers: api.headers).debug()
+                           headers: api.headers)
 }
 
 protocol APIProvider {
@@ -220,7 +220,7 @@ final class Service: APIProvider {
     }
 
     func fetchGoals() -> Observable<NetworkingResult<GoalResponse>> {
-        return requestData(.goal).debug()
+        return requestData(.goal)
             .map { [weak self] response, data -> NetworkingResult<GoalResponse> in
                 switch response.statusCode {
                 case 200, 304:

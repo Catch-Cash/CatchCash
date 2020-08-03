@@ -71,7 +71,7 @@ final class TransactionViewController: UIViewController {
                                       forCellReuseIdentifier: Identifier.transactionCell)
         transactionTableView.rx.setDelegate(self).disposed(by: disposeBag)
 
-        filterTableView.rx.itemSelected.debug("😭")
+        filterTableView.rx.itemSelected
             .bind { [weak self] indexPath in
                 indexPath.row == 0
                     ? self?.fetchTransactions.accept(nil)

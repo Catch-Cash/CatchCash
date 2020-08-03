@@ -83,7 +83,7 @@ final class TransactionTableViewCell: UITableViewCell {
         let label = Label(transaction.label)
         currentLabel.accept(label)
         accountLabel.text = transaction.account
-        titleTextField.text = transaction.title
+        titleTextField.text = transaction.title == nil ? "거래명이 없습니다" : transaction.title
         descriptionTextView.text = transaction.description
         priceLabel.text = (label == .income ? "+" : "-") + "\(transaction.price ?? 0) 원"
         priceLabel.textColor = label == .income ? Color.transactionIncome : Color.transactionExpense
@@ -121,13 +121,16 @@ final class TransactionTableViewCell: UITableViewCell {
         { [weak self] (label, title, description) -> Transaction? in
             guard let transaction = self?.defaultTransaction else { return nil }
             return Transaction(id: transaction.id, label: label.rawValue, title: title,
-                               description: description, account: nil, date: nil, price: nil)
+                               description: description,
+                               account: transaction.account,
+                               date: transaction.date,
+                               price: transaction.price)
         }
 
         let input = TransactionTableViewCellViewModel.Input(
             info: editingButton.rx.tap
                 .filter { [weak self] _ in self?.isEditingMode == false }
-                .withLatestFrom(info).debug()
+                .withLatestFrom(info)
                 .compactMap { $0 }
                 .asDriver(onErrorJustReturn: nil)
                 .compactMap { $0 }
@@ -137,8 +140,8 @@ final class TransactionTableViewCell: UITableViewCell {
         output.result.drive(onNext: { [weak self] result in
             guard let self = self else { return }
 
-            let label = Label(rawValue: result?.label ?? 0)
-            self.priceLabel.text = (label == .income ? "+" : "-") + "\(self.defaultTransaction.price ?? 0) 원"
+            let label = Label(rawValue: result?.label ?? self.defaultTransaction?.label ?? 0)
+            self.priceLabel.text = (label == .income ? "+" : "-") + "\(self.defaultTransaction?.price ?? 0) 원"
             self.priceLabel.textColor = label == .income ? Color.transactionIncome : Color.transactionExpense
 
             if let result = result {

@@ -80,16 +80,21 @@ final class AccountCollectionViewCell: UICollectionViewCell {
 
         bankLabel.text = account.bank
         aliasLabel.text = account.alias
+        balanceLabel.text = "\(account.banlance) 원"
+
         let views = stackView.arrangedSubviews.compactMap { $0 as? SimpleTransactionView }
+        minusHeight = 0
+
         for i in 0..<account.transactions.count {
             if views.count <= i {
                 stackView.addArrangedSubview(SimpleTransactionView())
             }
             views[i].setup(account.transactions[i], color: layer.colors?.first)
+            views[i].isHidden = false
         }
         for view in views {
             if !view.didSetup {
-                view.removeFromSuperview()
+                view.isHidden = true
                 minusHeight += 24
             }
         }

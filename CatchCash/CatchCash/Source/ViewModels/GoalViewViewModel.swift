@@ -21,7 +21,7 @@ final class GoalViewViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
 
     func transform(input: Input) -> Output {
-        return .init(goal: input.updateGoals.asObservable().debug()
+        return .init(goal: input.updateGoals.asObservable()
             .flatMap { Service.shared.updateGoal($0.category, goal: $0.goal) }
             .map { result in
                 switch result {
